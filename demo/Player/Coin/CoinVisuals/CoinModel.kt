@@ -1,11 +1,11 @@
 package Player.Coin.CoinVisuals
 
-import godot.Node3D
-import godot.Time
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Node3D
+import godot.api.Time
 import godot.global.GD
 
 @RegisterClass

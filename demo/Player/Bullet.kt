@@ -1,25 +1,25 @@
 package Player
 
-import godot.Area3D
-import godot.AudioStreamPlayer3D
-import godot.Curve
-import godot.Node
-import godot.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Area3D
+import godot.api.AudioStreamPlayer3D
+import godot.api.Curve
+import godot.api.Node
+import godot.api.Node3D
 import godot.core.Vector3
-import godot.core.asStringName
 import godot.global.GD
 import shared.Damageable
 
 @RegisterClass
-class Bullet: Node3D() {
+class Bullet : Node3D() {
 
     @Export
     @RegisterProperty
     lateinit var scaleDecay: Curve
+
     @Export
     @RegisterProperty
     var distanceLimit: Float = 5f
@@ -33,9 +33,11 @@ class Bullet: Node3D() {
     @Export
     @RegisterProperty
     lateinit var area: Area3D
+
     @Export
     @RegisterProperty
     lateinit var bulletVisuals: Node3D
+
     @Export
     @RegisterProperty
     lateinit var projectileSound: AudioStreamPlayer3D

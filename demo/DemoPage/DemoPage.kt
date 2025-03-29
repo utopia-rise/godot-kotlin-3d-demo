@@ -1,15 +1,15 @@
 package DemoPage
 
-import godot.Button
-import godot.Control
-import godot.GridContainer
-import godot.Input
-import godot.InputEvent
-import godot.Node
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Button
+import godot.api.Control
+import godot.api.GridContainer
+import godot.api.Input
+import godot.api.InputEvent
+import godot.api.Node
 import godot.core.Callable
 import godot.core.Color
 import godot.core.asNodePath
@@ -98,13 +98,14 @@ class DemoPage : Node() {
 
     @RegisterFunction
     fun changeInstruction(type: Int) {
-        when(type) {
+        when (type) {
             InstructionType.KEYBOARD.ordinal -> {
                 keyboardButton.modulateMutate { a = 1.0 }
-                joypadButton.modulateMutate{ a = 0.3 }
+                joypadButton.modulateMutate { a = 0.3 }
                 gridContainerKeyboard.show()
                 gridContainerJoypad.hide()
             }
+
             InstructionType.JOYPAD.ordinal -> {
                 keyboardButton.modulateMutate { a = 0.3 }
                 joypadButton.modulateMutate { a = 1.0 }

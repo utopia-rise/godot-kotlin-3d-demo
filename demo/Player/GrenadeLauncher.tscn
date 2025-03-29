@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2ew46dlu7u7x"]
 
-[ext_resource type="Script" path="res://scripts/Player/GrenadeLauncher.gdj" id="1_f708q"]
+[ext_resource type="Script" uid="uid://dhkx66nt0pqcq" path="res://scripts/Player/GrenadeLauncher.gdj" id="1_f708q"]
 [ext_resource type="Material" uid="uid://dus6jtbfyqwj8" path="res://demo/Player/GrenadeVisuals/aim_material.tres" id="2_qr0pg"]
 [ext_resource type="PackedScene" uid="uid://bq562nfq7puh" path="res://demo/Player/Grenade.tscn" id="2_ux7yt"]
 [ext_resource type="Material" uid="uid://b6h7p7jogt6ep" path="res://demo/Player/GrenadeVisuals/trajectory_material.tres" id="3_s7dm5"]

@@ -1,27 +1,27 @@
 package Player
 
-import godot.CharacterBody3D
-import godot.Engine
-import godot.Marker3D
-import godot.Mesh
-import godot.MeshInstance3D
-import godot.Node3D
-import godot.PackedScene
-import godot.PhysicsServer3D
-import godot.ProjectSettings
-import godot.ShapeCast3D
-import godot.SurfaceTool
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.CharacterBody3D
+import godot.api.Engine
+import godot.api.Marker3D
+import godot.api.Mesh
+import godot.api.MeshInstance3D
+import godot.api.Node3D
+import godot.api.PackedScene
+import godot.api.PhysicsServer3D
+import godot.api.ProjectSettings
+import godot.api.ShapeCast3D
+import godot.api.SurfaceTool
 import godot.core.Vector2
 import godot.core.Vector3
 import godot.core.asStringName
 import godot.global.GD
 
 @RegisterClass
-class GrenadeLauncher: Node3D() {
+class GrenadeLauncher : Node3D() {
     @Export
     @RegisterProperty
     lateinit var grenadeScene: PackedScene
@@ -56,6 +56,7 @@ class GrenadeLauncher: Node3D() {
 
     @RegisterProperty
     var fromLookPosition = Vector3.ZERO
+
     @RegisterProperty
     var throwDirection = Vector3.ZERO
 
@@ -174,10 +175,10 @@ class GrenadeLauncher: Node3D() {
             // Left side on the UV texture is at the top of the texture
             // (Vector2(0,1), or Vector2.DOWN). Right side on the UV texture is at
             // the bottom.
-            val  uvValueRightStart = (Vector2.RIGHT * uvProgressStart)
-            val  uvValueRightEnd = (Vector2.RIGHT * uvProgressEnd)
-            val  uvValueLeftStart = Vector2.DOWN + uvProgressStart
-            val  uvValueLeftEnd = Vector2.DOWN + uvProgressEnd
+            val uvValueRightStart = (Vector2.RIGHT * uvProgressStart)
+            val uvValueRightEnd = (Vector2.RIGHT * uvProgressEnd)
+            val uvValueLeftStart = Vector2.DOWN + uvProgressStart
+            val uvValueLeftEnd = Vector2.DOWN + uvProgressEnd
 
             pointPrevious = pointCurrent
 

@@ -1,18 +1,18 @@
 package Player
 
-import godot.Camera3D
-import godot.Input
-import godot.InputEvent
-import godot.InputEventMouseMotion
-import godot.Node
-import godot.Node3D
-import godot.RayCast3D
-import godot.SpringArm3D
 import godot.annotation.DoubleRange
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Camera3D
+import godot.api.Input
+import godot.api.InputEvent
+import godot.api.InputEventMouseMotion
+import godot.api.Node
+import godot.api.Node3D
+import godot.api.RayCast3D
+import godot.api.SpringArm3D
 import godot.core.Basis
 import godot.core.Vector3
 import godot.core.asStringName

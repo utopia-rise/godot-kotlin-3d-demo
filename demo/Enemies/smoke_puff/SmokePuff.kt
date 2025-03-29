@@ -1,14 +1,14 @@
 package Enemies.smoke_puff
 
-import godot.AnimationPlayer
-import godot.AudioStreamPlayer3D
-import godot.Node
-import godot.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
+import godot.api.AnimationPlayer
+import godot.api.AudioStreamPlayer3D
+import godot.api.Node
+import godot.api.Node3D
 import godot.core.Callable
 import godot.core.Signal0
 import godot.core.asStringName

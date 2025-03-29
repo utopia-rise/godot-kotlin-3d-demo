@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://ben1qjmc14yjq"]
 
-[ext_resource type="Shader" path="res://demo/Player/ExplosionVisuals/shaders/explosion_trails_shader.gdshader" id="1_j82gv"]
+[ext_resource type="Shader" uid="uid://ddtpbldsa0rhb" path="res://demo/Player/ExplosionVisuals/shaders/explosion_trails_shader.gdshader" id="1_j82gv"]
 
 [sub_resource type="Gradient" id="Gradient_xshra"]
 interpolation_mode = 2

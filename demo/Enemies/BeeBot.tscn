@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://rn45gytkk6tv"]
 
-[ext_resource type="Script" path="res://scripts/Enemies/Beebot.gdj" id="1_bir23"]
+[ext_resource type="Script" uid="uid://dnn3vsjvfahkf" path="res://scripts/Enemies/Beebot.gdj" id="1_bir23"]
 [ext_resource type="PackedScene" uid="uid://4nwp6xgihjc7" path="res://demo/Enemies/BeeBot/bee_root.tscn" id="2_btoc7"]
 [ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://demo/Enemies/Sounds/robot_defeat.wav" id="3_1gs12"]
 
@@ -87,9 +87,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtu2"]
 _data = {
-"RESET": SubResource("Animation_5pcps"),
-"found_player": SubResource("Animation_6k5ul"),
-"lost_player": SubResource("Animation_iekf1")
+&"RESET": SubResource("Animation_5pcps"),
+&"found_player": SubResource("Animation_6k5ul"),
+&"lost_player": SubResource("Animation_iekf1")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h03f6"]
@@ -162,8 +162,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wnpkd"]
 _data = {
-"RESET": SubResource("Animation_aj4yq"),
-"default": SubResource("Animation_7sj1l")
+&"RESET": SubResource("Animation_aj4yq"),
+&"default": SubResource("Animation_7sj1l")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pl7mw"]

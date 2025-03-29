@@ -1,26 +1,24 @@
 package Enemies
 
 import Enemies.BeeBot.BeeRoot
-import Enemies.smoke_puff.SmokePuff
 import Player.Bullet
-import Player.Coin.Coin
 import Player.Player
-import godot.AnimationPlayer
-import godot.Area3D
-import godot.AudioStreamPlayer3D
-import godot.CollisionShape3D
-import godot.Node
-import godot.Node3D
-import godot.PackedScene
-import godot.ResourceLoader
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.AnimationPlayer
+import godot.api.Area3D
+import godot.api.AudioStreamPlayer3D
+import godot.api.CollisionShape3D
+import godot.api.Node
+import godot.api.Node3D
+import godot.api.PackedScene
+import godot.api.ResourceLoader
 import godot.core.Vector3
 import godot.core.asStringName
-import godot.extensions.instantiateAs
-import godot.extensions.loadAs
+import godot.extension.instantiateAs
+import godot.extension.loadAs
 
 @RegisterClass
 class Beebot : Enemy() {
@@ -61,7 +59,7 @@ class Beebot : Enemy() {
     @RegisterProperty
     lateinit var defeatSound: AudioStreamPlayer3D
 
-    private val bulletScene =  ResourceLoader.loadAs<PackedScene>("res://demo/Player/Bullet.tscn")!!
+    private val bulletScene = ResourceLoader.loadAs<PackedScene>("res://demo/Player/Bullet.tscn")!!
 
     private val foundPlayerName = "found_player".asStringName()
     private val lostPlayerName = "lost_player".asStringName()

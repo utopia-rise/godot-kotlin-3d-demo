@@ -1,17 +1,17 @@
 package Player
 
-import godot.Area3D
-import godot.CollisionShape3D
-import godot.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Area3D
+import godot.api.CollisionShape3D
+import godot.api.Node3D
 import godot.core.asStringName
 import shared.Damageable
 
 @RegisterClass
-class MeleeAttackArea: Area3D() {
+class MeleeAttackArea : Area3D() {
     @Export
     @RegisterProperty
     lateinit var collisionShape: CollisionShape3D

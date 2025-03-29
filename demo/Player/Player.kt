@@ -1,25 +1,29 @@
 package Player
 
 import Player.Coin.Coin
-import godot.AnimationPlayer
-import godot.AudioStreamPlayer3D
-import godot.CharacterBody3D
-import godot.ColorRect
-import godot.Input
-import godot.InputEventKey
-import godot.InputEventMouseButton
-import godot.InputMap
-import godot.Key
-import godot.MouseButton
-import godot.Node3D
-import godot.PackedScene
-import godot.ShapeCast3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
-import godot.core.*
+import godot.api.AnimationPlayer
+import godot.api.AudioStreamPlayer3D
+import godot.api.CharacterBody3D
+import godot.api.ColorRect
+import godot.api.Input
+import godot.api.InputEventKey
+import godot.api.InputEventMouseButton
+import godot.api.InputMap
+import godot.api.Node3D
+import godot.api.PackedScene
+import godot.api.ShapeCast3D
+import godot.core.Basis
+import godot.core.Key
+import godot.core.MouseButton
+import godot.core.Vector3
+import godot.core.asCachedStringName
+import godot.core.asStringName
+import godot.core.signal1
 import godot.global.GD
 import shared.Damageable
 
@@ -30,8 +34,8 @@ enum class WeaponType {
 
 @RegisterClass
 class Player : CharacterBody3D(), Damageable {
-    @RegisterSignal
-    val weaponSwitched by signal1<String>("weapon_name")
+    @RegisterSignal("weapon_name")
+    val weaponSwitched by signal1<String>()
 
     @Export
     @RegisterProperty
@@ -376,7 +380,7 @@ class Player : CharacterBody3D(), Damageable {
                 .slerp(rotationBasis, delta * rotationSpeed)
         ).scaled(modelScale)
 
-        rotationRoot.transformMutate{ basis = newBasis }
+        rotationRoot.transformMutate { basis = newBasis }
     }
 
     // Used to register required input actions when copying this character to a different project.

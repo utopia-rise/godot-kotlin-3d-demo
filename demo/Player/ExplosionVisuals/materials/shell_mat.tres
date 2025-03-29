@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b68u2dl4qlooi"]
 
-[ext_resource type="Shader" path="res://demo/Player/ExplosionVisuals/shaders/shell_shader.gdshader" id="1_48kpm"]
+[ext_resource type="Shader" uid="uid://cmdbdufqjnfdm" path="res://demo/Player/ExplosionVisuals/shaders/shell_shader.gdshader" id="1_48kpm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4kwk8"]
 noise_type = 2
@@ -18,6 +18,6 @@ render_priority = 0
 shader = ExtResource("1_48kpm")
 shader_parameter/intensity = 1.0
 shader_parameter/shell_color = Color(0.972549, 0.521569, 0, 1)
+shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_q4shp")
 shader_parameter/edge = 0.05
 shader_parameter/progress = 0.0
-shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_q4shp")

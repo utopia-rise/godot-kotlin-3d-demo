@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bq562nfq7puh"]
 
-[ext_resource type="Script" path="res://scripts/Player/Grenade.gdj" id="1_0w3wd"]
+[ext_resource type="Script" uid="uid://doy0adw4s6mpe" path="res://scripts/Player/Grenade.gdj" id="1_0w3wd"]
 [ext_resource type="PackedScene" uid="uid://d3765dge2xh0" path="res://demo/Player/GrenadeVisuals/grenade/grenade.tscn" id="2_6f7t1"]
 [ext_resource type="PackedScene" uid="uid://e7p4xvo51lbl" path="res://demo/Player/ExplosionVisuals/explosion_scene.tscn" id="2_ce8i2"]
 [ext_resource type="AudioStream" uid="uid://csou1m38pk3m4" path="res://demo/Player/Sounds/musket-explosion-6383.wav" id="3_7x8ud"]

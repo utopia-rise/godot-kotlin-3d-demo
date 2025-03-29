@@ -1,19 +1,19 @@
 package Player
 
-import godot.HBoxContainer
-import godot.Label
-import godot.Timer
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.HBoxContainer
+import godot.api.Label
+import godot.api.Timer
 import godot.core.asNodePath
 
 private const val HIDDEN_Y_POS = -100
 private const val DISPLAY_Y_POS = 20
 
 @RegisterClass
-class CoinsContainer: HBoxContainer() {
+class CoinsContainer : HBoxContainer() {
     @Export
     @RegisterProperty
     lateinit var displayTimer: Timer

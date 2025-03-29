@@ -1,21 +1,21 @@
 package CameraMode
 
-import godot.Camera3D
-import godot.Input
-import godot.InputEvent
-import godot.InputEventKey
-import godot.Key
-import godot.Node3D
-import godot.OS
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Camera3D
+import godot.api.Input
+import godot.api.InputEvent
+import godot.api.InputEventKey
+import godot.api.Node3D
+import godot.api.OS
 import godot.core.Basis
+import godot.core.Key
 import godot.core.Vector3
 import godot.core.asStringName
 import godot.global.GD
-import godot.util.PI
+import kotlin.math.PI
 
 private const val CAMERA_MODE_TOGGLE_GROUP = "camera_mode_toggle"
 

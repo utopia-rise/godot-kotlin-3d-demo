@@ -1,10 +1,10 @@
 package icons
 
-import godot.PanelContainer
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.PanelContainer
 
 @RegisterClass
 class WeaponUI : PanelContainer() {

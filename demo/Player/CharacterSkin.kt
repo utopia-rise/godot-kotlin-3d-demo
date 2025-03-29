@@ -1,21 +1,21 @@
 package Player
 
-import godot.AnimationNodeOneShot
-import godot.AnimationNodeStateMachinePlayback
-import godot.AnimationPlayer
-import godot.AnimationTree
-import godot.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
+import godot.api.AnimationNodeOneShot
+import godot.api.AnimationNodeStateMachinePlayback
+import godot.api.AnimationPlayer
+import godot.api.AnimationTree
+import godot.api.Node3D
 import godot.core.Signal0
 import godot.core.asStringName
 import godot.core.signal0
 
 @RegisterClass
-class CharacterSkin: Node3D() {
+class CharacterSkin : Node3D() {
 
     @RegisterSignal
     val footStep: Signal0 by signal0()

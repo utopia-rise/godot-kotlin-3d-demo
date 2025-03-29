@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=3 uid="uid://ciqrpd5675boy"]
 
-[ext_resource type="Script" path="res://scripts/Player/Player.gdj" id="1_beums"]
+[ext_resource type="Script" uid="uid://ceteilad77rgr" path="res://scripts/Player/Player.gdj" id="1_beums"]
 [ext_resource type="PackedScene" uid="uid://bguebyvtegnv8" path="res://demo/Player/Bullet.tscn" id="2_ck433"]
-[ext_resource type="Script" path="res://scripts/Player/CameraController.gdj" id="2_nuakl"]
+[ext_resource type="Script" uid="uid://dr32cptk08mq0" path="res://scripts/Player/CameraController.gdj" id="2_nuakl"]
 [ext_resource type="PackedScene" uid="uid://b2ew46dlu7u7x" path="res://demo/Player/GrenadeLauncher.tscn" id="3_54qc4"]
 [ext_resource type="PackedScene" uid="uid://c54mpt43fs4wc" path="res://demo/Player/Coin/Coin.tscn" id="3_rga6y"]
 [ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://demo/Player/CharacterSkin.tscn" id="4_ign62"]
-[ext_resource type="Script" path="res://scripts/Player/MeleeAttackArea.gdj" id="4_ish5t"]
-[ext_resource type="Script" path="res://scripts/Player/CoinsContainer.gdj" id="6_8jksa"]
+[ext_resource type="Script" uid="uid://b2txtlyukljrp" path="res://scripts/Player/MeleeAttackArea.gdj" id="4_ish5t"]
+[ext_resource type="Script" uid="uid://bh662he12mljf" path="res://scripts/Player/CoinsContainer.gdj" id="6_8jksa"]
 [ext_resource type="PackedScene" uid="uid://cqw64w6kb0fyg" path="res://demo/Player/Coin/CoinVisuals/CoinModel.tscn" id="8_6qxxt"]
 [ext_resource type="AudioStream" uid="uid://bx0t7f2nuk2lr" path="res://demo/Player/Sounds/03_Step_grass_03.wav" id="10_wx4h4"]
 [ext_resource type="AudioStream" uid="uid://cbcb2d63weegs" path="res://demo/Player/Sounds/45_Landing_01.wav" id="11_3s4i7"]
@@ -98,8 +98,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xvsui"]
 _data = {
-"Attack": SubResource("Animation_nl12d"),
-"RESET": SubResource("Animation_pts2o")
+&"Attack": SubResource("Animation_nl12d"),
+&"RESET": SubResource("Animation_pts2o")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pcytg"]

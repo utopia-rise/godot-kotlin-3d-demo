@@ -6,12 +6,14 @@ fqName = icons.Icone
 relativeSourcePath = demo/icons/Icone.kt
 baseType = TextureRect
 supertypes = [
-    godot.TextureRect,
-	godot.Control,
-	godot.CanvasItem,
-	godot.Node,
-	godot.Object,
+    godot.api.TextureRect,
+	godot.api.Control,
+	godot.api.CanvasItem,
+	godot.api.Node,
+	godot.api.Object,
 	godot.core.KtObject,
+	godot.common.interop.NativeWrapper,
+	godot.common.interop.NativePointer,
 	kotlin.Any
 ]
 signals = [

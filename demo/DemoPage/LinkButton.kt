@@ -1,14 +1,14 @@
 package DemoPage
 
-import godot.OS
-import godot.TextureButton
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.OS
+import godot.api.TextureButton
 
 @RegisterClass
-class LinkButton: TextureButton() {
+class LinkButton : TextureButton() {
 
     @Export
     @RegisterProperty

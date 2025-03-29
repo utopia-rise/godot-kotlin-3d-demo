@@ -1,19 +1,19 @@
 [gd_scene load_steps=33 format=3 uid="uid://bde56jd8avj2o"]
 
 [ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://demo/Environment/sky/blue_sky.tres" id="1_8t23g"]
-[ext_resource type="Shader" path="res://demo/Environment/water/water_shader.gdshader" id="2_axxqq"]
+[ext_resource type="Shader" uid="uid://jv430rcxlfi2" path="res://demo/Environment/water/water_shader.gdshader" id="2_axxqq"]
 [ext_resource type="PackedScene" uid="uid://nhiiwxrhhtao" path="res://demo/Environment/terrain.glb" id="2_u6gug"]
 [ext_resource type="MultiMesh" uid="uid://dcwmnh5np6hna" path="res://demo/Environment/grass/grass_multimesh.res" id="3_ad6l2"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://demo/Environment/water/textures/caustic_texture.png" id="3_ltffb"]
 [ext_resource type="Material" uid="uid://c5trc4hy86utg" path="res://demo/Environment/Terrain/terrain_mat.tres" id="3_o2vg7"]
-[ext_resource type="Script" path="res://scripts/Environment/GrassScatter.gdj" id="4_8qf1d"]
-[ext_resource type="Shader" path="res://demo/Environment/waterfall/waterfall.gdshader" id="4_lo1st"]
+[ext_resource type="Script" uid="uid://g6q50rvpavxy" path="res://scripts/Environment/GrassScatter.gdj" id="4_8qf1d"]
+[ext_resource type="Shader" uid="uid://cg4cq7om1lhxp" path="res://demo/Environment/waterfall/waterfall.gdshader" id="4_lo1st"]
 [ext_resource type="NavigationMesh" uid="uid://bd73n68dlm7qp" path="res://demo/Environment/environment_navmesh.res" id="5_0k4by"]
 [ext_resource type="PackedScene" uid="uid://dr8slkof1nc8r" path="res://demo/Environment/trees/tree.tscn" id="6_r8kjl"]
 [ext_resource type="Material" uid="uid://ovciasxou830" path="res://demo/Environment/grass/grass_mat.tres" id="7_u5eta"]
 [ext_resource type="PackedScene" uid="uid://drcwbur5pemly" path="res://demo/Environment/tree_trunk/tree_trunk_small.glb" id="8_0wkfp"]
 [ext_resource type="Material" path="res://demo/Environment/dark_bark/dark_bark.tres" id="9_423rm"]
-[ext_resource type="Script" path="res://scripts/Level/DeathPlane.gdj" id="10_evept"]
+[ext_resource type="Script" uid="uid://c5g4guio7a6ti" path="res://scripts/Level/DeathPlane.gdj" id="10_evept"]
 [ext_resource type="Material" uid="uid://cbwea5kec68u6" path="res://demo/Environment/large_tree_trunk/trunk_top/trunk_top.tres" id="10_junlj"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://demo/Player/Player.tscn" id="11_1wby0"]
 [ext_resource type="PackedScene" uid="uid://c28pgdu71100y" path="res://demo/Environment/tree_trunk/tree_trunk_long.glb" id="11_y8l25"]
@@ -50,9 +50,9 @@ noise = SubResource("FastNoiseLite_icbax")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_62f0f"]
 render_priority = 0
 shader = ExtResource("4_lo1st")
+shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_b5x5q")
 shader_parameter/water_color_top = Color(0.188235, 0.552941, 0.901961, 1)
 shader_parameter/water_color_bottom = Color(0.160784, 0.294118, 0.560784, 1)
-shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_b5x5q")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_23rrj"]
 fractal_type = 0
@@ -64,13 +64,13 @@ noise = SubResource("FastNoiseLite_23rrj")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8t5sk"]
 render_priority = -1
 shader = ExtResource("2_axxqq")
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_38v3r")
+shader_parameter/caustic_sampler = ExtResource("3_ltffb")
 shader_parameter/water_color = Color(0.133333, 0.490196, 0.823529, 1)
 shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
 shader_parameter/water_edge_distance = 0.4
 shader_parameter/water_depth_distance = 8.0
 shader_parameter/water_texture_scale = 40.0
-shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_38v3r")
-shader_parameter/caustic_sampler = ExtResource("3_ltffb")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_prq5n"]
 size = Vector2(300, 300)

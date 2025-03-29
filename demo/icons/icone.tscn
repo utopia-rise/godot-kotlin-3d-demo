@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1fed4rxaa3qj"]
 
 [ext_resource type="Texture2D" uid="uid://10s03a0ng24t" path="res://demo/icons/flash_icon.png" id="1_tbpcg"]
-[ext_resource type="Script" path="res://scripts/icons/Icone.gdj" id="2_e7lj0"]
+[ext_resource type="Script" uid="uid://bxf2dfxsf6gxu" path="res://scripts/icons/Icone.gdj" id="2_e7lj0"]
 
 [node name="Flash" type="TextureRect"]
 unique_name_in_owner = true

@@ -9,11 +9,11 @@
 [ext_resource type="Material" uid="uid://c5trc4hy86utg" path="res://demo/Environment/Terrain/terrain_mat.tres" id="5_xal68"]
 [ext_resource type="Material" uid="uid://con3572kpt8a3" path="res://demo/Environment/large_tree_trunk/large_tree_trunk_mat.tres" id="6_q3y6j"]
 [ext_resource type="PackedScene" uid="uid://dr8slkof1nc8r" path="res://demo/Environment/trees/tree.tscn" id="7_rvx5i"]
-[ext_resource type="Shader" path="res://demo/Environment/water/water_shader.gdshader" id="8_trepf"]
+[ext_resource type="Shader" uid="uid://jv430rcxlfi2" path="res://demo/Environment/water/water_shader.gdshader" id="8_trepf"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://demo/Environment/water/textures/caustic_texture.png" id="9_8eqnd"]
 [ext_resource type="PackedScene" uid="uid://dx8qkjcbt8emp" path="res://demo/Environment/grass/GrassChunk.tscn" id="10_8c06q"]
 [ext_resource type="PackedScene" uid="uid://cn8o7sv1osssk" path="res://demo/Environment/bushes/bush.tscn" id="11_f8df7"]
-[ext_resource type="Script" path="res://scripts/Level/DeathPlane.gdj" id="12_vo5hg"]
+[ext_resource type="Script" uid="uid://c5g4guio7a6ti" path="res://scripts/Level/DeathPlane.gdj" id="12_vo5hg"]
 [ext_resource type="PackedScene" uid="uid://cmwyiep10m4u4" path="res://demo/Box/Box.tscn" id="12_xvr0j"]
 [ext_resource type="PackedScene" uid="uid://rn45gytkk6tv" path="res://demo/Enemies/BeeBot.tscn" id="13_012dc"]
 [ext_resource type="PackedScene" uid="uid://oxyn25v5khuk" path="res://demo/Enemies/Beetle.tscn" id="14_tmmem"]
@@ -47,13 +47,13 @@ noise = SubResource("FastNoiseLite_le7wx")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhgr"]
 render_priority = -1
 shader = ExtResource("8_trepf")
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_71o0d")
+shader_parameter/caustic_sampler = ExtResource("9_8eqnd")
 shader_parameter/water_color = Color(0.133333, 0.490196, 0.823529, 1)
 shader_parameter/water_depth_color = Color(0.164706, 0.537255, 0.901961, 1)
 shader_parameter/water_edge_distance = 0.4
 shader_parameter/water_depth_distance = 8.0
 shader_parameter/water_texture_scale = 40.0
-shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_71o0d")
-shader_parameter/caustic_sampler = ExtResource("9_8eqnd")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eflel"]
 size = Vector2(300, 300)

@@ -1,12 +1,12 @@
-import godot.Input
-import godot.InputEvent
-import godot.InputEventKey
-import godot.InputEventMouseButton
-import godot.Key
-import godot.Node
-import godot.OS
-import godot.Window
 import godot.annotation.RegisterClass
+import godot.api.Input
+import godot.api.InputEvent
+import godot.api.InputEventKey
+import godot.api.InputEventMouseButton
+import godot.api.Node
+import godot.api.OS
+import godot.api.Window
+import godot.core.Key
 
 @RegisterClass
 class FullScreenHandler : Node() {

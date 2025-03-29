@@ -6,12 +6,14 @@ fqName = JumpingPad.JumpingPad
 relativeSourcePath = demo/JumpingPad/JumpingPad.kt
 baseType = Area3D
 supertypes = [
-    godot.Area3D,
-	godot.CollisionObject3D,
-	godot.Node3D,
-	godot.Node,
-	godot.Object,
+    godot.api.Area3D,
+	godot.api.CollisionObject3D,
+	godot.api.Node3D,
+	godot.api.Node,
+	godot.api.Object,
 	godot.core.KtObject,
+	godot.common.interop.NativeWrapper,
+	godot.common.interop.NativePointer,
 	kotlin.Any
 ]
 signals = [

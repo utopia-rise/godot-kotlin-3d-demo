@@ -1,13 +1,13 @@
 package Enemies.BeeBot
 
-import godot.AnimationNodeStateMachinePlayback
-import godot.AnimationTree
-import godot.Node
-import godot.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.AnimationNodeStateMachinePlayback
+import godot.api.AnimationTree
+import godot.api.Node
+import godot.api.Node3D
 import godot.core.asStringName
 
 @RegisterClass

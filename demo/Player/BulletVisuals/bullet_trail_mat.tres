@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bii1msr5lsqwb"]
 
-[ext_resource type="Shader" path="res://demo/Player/BulletVisuals/bullet_trail_shader.gdshader" id="1_vcgv1"]
+[ext_resource type="Shader" uid="uid://djtewmxr5cpjr" path="res://demo/Player/BulletVisuals/bullet_trail_shader.gdshader" id="1_vcgv1"]
 
 [sub_resource type="Gradient" id="Gradient_nmj62"]
 colors = PackedColorArray(0.992188, 0.338334, 0.021303, 1, 0.979201, 1, 0.461844, 1)

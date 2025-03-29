@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7j15r0ej4fwx"]
 
-[ext_resource type="Script" path="res://scripts/JumpingPad/JumpingPad.gdj" id="1_w7mtj"]
+[ext_resource type="Script" uid="uid://djmdusjf2nejj" path="res://scripts/JumpingPad/JumpingPad.gdj" id="1_w7mtj"]
 [ext_resource type="PackedScene" uid="uid://d3jgve1g030hy" path="res://demo/Environment/mushroom/mushroom.glb" id="2_3e4pb"]
 [ext_resource type="PackedScene" uid="uid://ueivw4w2t3rj" path="res://demo/JumpingPad/JumpingPadVisuals/JumpingPadModel.tscn" id="2_otx0r"]
 

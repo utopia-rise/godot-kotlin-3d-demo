@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://cnj0t3ad178q6"]
 
-[ext_resource type="Script" path="res://scripts/DemoPage/DemoPage.gdj" id="1_rvp4j"]
-[ext_resource type="Shader" path="res://demo/DemoPage/Assets/BlurShader.gdshader" id="2_07raf"]
+[ext_resource type="Script" uid="uid://ixgmt4ivmav3" path="res://scripts/DemoPage/DemoPage.gdj" id="1_rvp4j"]
+[ext_resource type="Shader" uid="uid://dbp8tbyc4kpnm" path="res://demo/DemoPage/Assets/BlurShader.gdshader" id="2_07raf"]
 [ext_resource type="Texture2D" uid="uid://3fxtm3u8im2" path="res://demo/DemoPage/Assets/gdquest_logo_white.svg" id="3_n7elw"]
 [ext_resource type="Texture2D" uid="uid://c1h5gk8rsf3va" path="res://demo/DemoPage/Assets/RoundedRectangle.png" id="4_paxwi"]
 [ext_resource type="Texture2D" uid="uid://bisdpbdirkat6" path="res://demo/DemoPage/Assets/DemoPageBackground.png" id="5_3cf56"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cwxudh6hj0dx" path="res://demo/DemoPage/ControllerIcons/l2_button.png" id="19_ymr5x"]
 [ext_resource type="Texture2D" uid="uid://dnk6rxv8ejgny" path="res://demo/DemoPage/ControllerIcons/buttonStart.png" id="21_hfiqr"]
 [ext_resource type="Texture2D" uid="uid://u8dgw2xh1ofy" path="res://demo/DemoPage/Assets/discord-icon.png" id="24_2yjb0"]
-[ext_resource type="Script" path="res://scripts/DemoPage/LinkButton.gdj" id="25_a582v"]
+[ext_resource type="Script" uid="uid://dpolg7d8iqgf3" path="res://scripts/DemoPage/LinkButton.gdj" id="25_a582v"]
 [ext_resource type="Texture2D" uid="uid://4028ms3tu0f0" path="res://demo/DemoPage/Assets/twitter-icon.png" id="26_jj2ra"]
 [ext_resource type="Texture2D" uid="uid://bu5fw8vbrfsmm" path="res://demo/DemoPage/Assets/itch-icon.png" id="27_mjmj1"]
 

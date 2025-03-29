@@ -1,23 +1,22 @@
 package Player
 
-import godot.Area3D
-import godot.AudioStreamPlayer3D
-import godot.CharacterBody3D
-import godot.Node3D
-import godot.PackedScene
-import godot.ProjectSettings
-import godot.Timer
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Area3D
+import godot.api.AudioStreamPlayer3D
+import godot.api.CharacterBody3D
+import godot.api.Node3D
+import godot.api.PackedScene
+import godot.api.ProjectSettings
+import godot.api.Timer
 import godot.core.Vector3
-import godot.core.asStringName
 import godot.global.GD
 import shared.Damageable
 
 @RegisterClass
-class Grenade: CharacterBody3D() {
+class Grenade : CharacterBody3D() {
     @Export
     @RegisterProperty
     lateinit var explosionScene: PackedScene
@@ -33,7 +32,6 @@ class Grenade: CharacterBody3D() {
     @Export
     @RegisterProperty
     lateinit var explosionStartTimer: Timer
-
 
 
     private val gravity: Double by lazy {
@@ -78,7 +76,7 @@ class Grenade: CharacterBody3D() {
             .forEach { body ->
                 val impactPoint = (globalPosition - body.globalPosition)
                     .normalized()
-                    .let {  impactPoint ->
+                    .let { impactPoint ->
                         (impactPoint + Vector3.DOWN).normalized() * 0.5
                     }
                 val force = -impactPoint * 10.0

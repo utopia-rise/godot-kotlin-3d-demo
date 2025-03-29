@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqw64w6kb0fyg"]
 
 [ext_resource type="PackedScene" uid="uid://dta8u77j4ye4v" path="res://demo/Player/Coin/CoinVisuals/CoinModel.glb" id="1_0qdgb"]
-[ext_resource type="Script" path="res://demo/Player/Coin/CoinVisuals/CoinModel.kt" id="2_qdc72"]
+[ext_resource type="Script" uid="uid://cbu3v5kj0d1vk" path="res://demo/Player/Coin/CoinVisuals/CoinModel.kt" id="2_qdc72"]
 
 [node name="Coin" type="Node3D"]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://okmv1cbta83x"]
 
-[ext_resource type="Script" path="res://scripts/Enemies/smoke_puff/SmokePuff.gdj" id="1_wbehn"]
+[ext_resource type="Script" uid="uid://doe1qh3ywqg1y" path="res://scripts/Enemies/smoke_puff/SmokePuff.gdj" id="1_wbehn"]
 [ext_resource type="PackedScene" uid="uid://n5v4vlr80bj8" path="res://demo/Enemies/smoke_puff/smoke_ball.glb" id="3_gsgkx"]
 [ext_resource type="Material" uid="uid://cnvmsr64tkgyn" path="res://demo/Enemies/smoke_puff/smoke_ball_middle_mat.tres" id="3_wa5gb"]
-[ext_resource type="Shader" path="res://demo/Enemies/smoke_puff/smoke_ball.gdshader" id="4_bh8q1"]
+[ext_resource type="Shader" uid="uid://dx7t7n5gqn06s" path="res://demo/Enemies/smoke_puff/smoke_ball.gdshader" id="4_bh8q1"]
 [ext_resource type="AudioStream" uid="uid://ddhimfnmpxlrp" path="res://demo/Enemies/smoke_puff/Sounds/poof_1.wav" id="5_qiexl"]
 [ext_resource type="AudioStream" uid="uid://cgv0ngrh5ofe" path="res://demo/Enemies/smoke_puff/Sounds/poof_2.wav" id="6_1l2bk"]
 
@@ -19,13 +19,13 @@ noise = SubResource("FastNoiseLite_sxisx")
 resource_local_to_scene = true
 render_priority = 10
 shader = ExtResource("4_bh8q1")
+shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_a2w6x")
 shader_parameter/progress = 1.0
 shader_parameter/smoothness = 0.2
 shader_parameter/ease = 3.0
 shader_parameter/base_scale = 0.1
 shader_parameter/deformation_scale = 1.0
 shader_parameter/texture_offset = 0.0
-shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_a2w6x")
 
 [sub_resource type="Animation" id="Animation_6j1ps"]
 length = 0.001
@@ -314,8 +314,8 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbed2"]
 _data = {
-"RESET": SubResource("Animation_6j1ps"),
-"poof": SubResource("Animation_2s7xh")
+&"RESET": SubResource("Animation_6j1ps"),
+&"poof": SubResource("Animation_2s7xh")
 }
 
 [node name="smoke_puff" type="Node3D" node_paths=PackedStringArray("smoke_sounds_root", "player")]

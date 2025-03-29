@@ -1,12 +1,12 @@
 package Environment
 
-import godot.ArrayMesh
-import godot.MeshDataTool
-import godot.MeshInstance3D
-import godot.MultiMeshInstance3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterProperty
+import godot.api.ArrayMesh
+import godot.api.MeshDataTool
+import godot.api.MeshInstance3D
+import godot.api.MultiMeshInstance3D
 import godot.core.Basis
 import godot.core.Transform3D
 import godot.core.Vector3

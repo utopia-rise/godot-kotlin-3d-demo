@@ -1,9 +1,9 @@
 package Box
 
-import godot.Node3D
-import godot.RigidBody3D
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
+import godot.api.Node3D
+import godot.api.RigidBody3D
 import godot.core.Vector3
 import kotlin.random.Random
 

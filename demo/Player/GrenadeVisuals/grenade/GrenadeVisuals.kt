@@ -1,16 +1,16 @@
 package Player.GrenadeVisuals.grenade
 
-import godot.AnimationPlayer
-import godot.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.AnimationPlayer
+import godot.api.Node3D
 import godot.core.Vector3
 import godot.core.asStringName
 
 @RegisterClass
-class GrenadeVisuals: Node3D() {
+class GrenadeVisuals : Node3D() {
     @Export
     @RegisterProperty
     lateinit var animationPlayer: AnimationPlayer

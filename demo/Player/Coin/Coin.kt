@@ -1,18 +1,18 @@
 package Player.Coin
 
-import godot.Area3D
-import godot.AudioStreamPlayer3D
-import godot.Node3D
-import godot.PhysicsBody3D
-import godot.PhysicsServer3D
-import godot.RigidBody3D
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.api.Area3D
+import godot.api.AudioStreamPlayer3D
+import godot.api.Node3D
+import godot.api.PhysicsBody3D
+import godot.api.PhysicsServer3D
+import godot.api.RigidBody3D
 import godot.core.Callable
 import godot.core.StringName
 import godot.core.Vector3
-import godot.extensions.getNodeAs
+import godot.extension.getNodeAs
 import godot.global.GD
 import kotlin.random.Random
 
