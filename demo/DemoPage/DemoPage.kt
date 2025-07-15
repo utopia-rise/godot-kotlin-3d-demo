@@ -51,7 +51,7 @@ class DemoPage : Node() {
     @RegisterProperty
     lateinit var gridContainerJoypad: GridContainer
 
-    private var demoMouseMode: Input.MouseMode = Input.MouseMode.MOUSE_MODE_VISIBLE
+    private var demoMouseMode: Input.MouseMode = Input.MouseMode.VISIBLE
 
     private val changeInstructionName = "changeInstruction".toGodotName()
     private val quitName = "quit".toGodotName()
@@ -62,7 +62,7 @@ class DemoPage : Node() {
         val tree = getTree() ?: return
         tree.paused = true
         demoMouseMode = Input.getMouseMode()
-        Input.setMouseMode(Input.MouseMode.MOUSE_MODE_VISIBLE)
+        Input.setMouseMode(Input.MouseMode.VISIBLE)
 
         resumeButton.pressed.connect(this, DemoPage::resumeDemo)
 
@@ -123,7 +123,7 @@ class DemoPage : Node() {
         getTree()?.let { it.paused = true }
         demoPageRoot.show()
         createTween()?.tweenProperty(demoPageRoot, demoPageRoot::modulate.name.asNodePath(), Color.white, 0.3)
-        Input.setMouseMode(Input.MouseMode.MOUSE_MODE_VISIBLE)
+        Input.setMouseMode(Input.MouseMode.VISIBLE)
     }
 
     @RegisterFunction

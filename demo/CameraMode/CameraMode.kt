@@ -45,7 +45,7 @@ class CameraMode : Node3D() {
     override fun _input(event: InputEvent?) {
         if (event is InputEventKey) {
             if (event.isPressed() && !event.isEcho()) {
-                if (event.keycode == Key.KEY_F10) {
+                if (event.keycode == Key.F10) {
                     toggleCameraMode()
                 }
             }
@@ -57,32 +57,32 @@ class CameraMode : Node3D() {
         if (!visible) return
 
         var movement = Vector3.ZERO
-        movement += if (Input.isKeyPressed(Key.KEY_W)) {
+        movement += if (Input.isKeyPressed(Key.W)) {
             Vector3.FORWARD
         } else {
             Vector3.ZERO
         }
-        movement += if (Input.isKeyPressed(Key.KEY_A)) {
+        movement += if (Input.isKeyPressed(Key.A)) {
             Vector3.LEFT
         } else {
             Vector3.ZERO
         }
-        movement += if (Input.isKeyPressed(Key.KEY_S)) {
+        movement += if (Input.isKeyPressed(Key.S)) {
             Vector3.BACK
         } else {
             Vector3.ZERO
         }
-        movement += if (Input.isKeyPressed(Key.KEY_D)) {
+        movement += if (Input.isKeyPressed(Key.D)) {
             Vector3.RIGHT
         } else {
             Vector3.ZERO
         }
-        movement += if (Input.isKeyPressed(Key.KEY_Q)) {
+        movement += if (Input.isKeyPressed(Key.Q)) {
             Vector3.DOWN
         } else {
             Vector3.ZERO
         }
-        movement += if (Input.isKeyPressed(Key.KEY_E)) {
+        movement += if (Input.isKeyPressed(Key.E)) {
             Vector3.UP
         } else {
             Vector3.ZERO

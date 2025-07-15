@@ -36,8 +36,8 @@ class JumpingPad : Area3D() {
             val tween = createTween()!!
             mushroom.scale.y = 0.4
             tween.tweenProperty(mushroom, "scale:y".asNodePath(), 1.0, 1.0)
-                ?.setEase(Tween.EaseType.EASE_OUT)
-                ?.setTrans(Tween.TransitionType.TRANS_ELASTIC)
+                ?.setEase(Tween.EaseType.OUT)
+                ?.setTrans(Tween.TransitionType.ELASTIC)
         }
     }
 }

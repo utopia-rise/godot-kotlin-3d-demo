@@ -83,7 +83,7 @@ class CameraController : Node3D() {
 
     @RegisterFunction
     override fun _unhandledInput(event: InputEvent?) {
-        if (event is InputEventMouseMotion && Input.getMouseMode() == Input.MouseMode.MOUSE_MODE_CAPTURED) {
+        if (event is InputEventMouseMotion && Input.getMouseMode() == Input.MouseMode.CAPTURED) {
             rotationInput = -event.relative.x * mouseSensitivity
             tiltInput = -event.relative.y * mouseSensitivity
         }

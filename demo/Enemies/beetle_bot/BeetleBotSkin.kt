@@ -50,7 +50,7 @@ class BeetleBotSkin : Node3D() {
 
         forceLoop.forEach { animationName ->
             val anim = player.getAnimation(animationName.asStringName())!!
-            anim.loopMode = Animation.LoopMode.LOOP_LINEAR
+            anim.loopMode = Animation.LoopMode.LINEAR
         }
     }
 

@@ -91,6 +91,6 @@ class Grenade : CharacterBody3D() {
         }
 
         hide()
-        explosionSound.finished.connect(this, Grenade::queueFree, ConnectFlags.CONNECT_ONE_SHOT.id.toInt())
+        explosionSound.finished.connect(this, Grenade::queueFree, ConnectFlags.ONE_SHOT.id.toInt())
     }
 }

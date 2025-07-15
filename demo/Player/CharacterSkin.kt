@@ -71,6 +71,6 @@ class CharacterSkin : Node3D() {
 
     @RegisterFunction
     fun punch() {
-        animationTree.set(punchOneShotPath, AnimationNodeOneShot.OneShotRequest.ONE_SHOT_REQUEST_FIRE.id)
+        animationTree.set(punchOneShotPath, AnimationNodeOneShot.OneShotRequest.FIRE.id)
     }
 }
