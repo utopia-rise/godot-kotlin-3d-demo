@@ -150,7 +150,7 @@ class GrenadeLauncher : Node3D() {
         val offsetRight = -leftDirection * trailWidth / 2.0
 
         val surfaceTool = SurfaceTool()
-        surfaceTool.begin(Mesh.PrimitiveType.PRIMITIVE_TRIANGLES)
+        surfaceTool.begin(Mesh.PrimitiveType.TRIANGLES)
 
         val endTime = timeToLand + 0.5
         var pointPrevious = Vector3.ZERO

@@ -146,7 +146,7 @@ class Player : CharacterBody3D(), Damageable {
     @RegisterFunction
     override fun _ready() {
         startPosition = globalPosition
-        Input.setMouseMode(Input.MouseMode.MOUSE_MODE_CAPTURED)
+        Input.setMouseMode(Input.MouseMode.CAPTURED)
         cameraController.setup(this)
         grenadeAimController.visible = false
         weaponSwitched.emit(WeaponType.DEFAULT.name)
@@ -386,22 +386,22 @@ class Player : CharacterBody3D(), Damageable {
     // Used to register required input actions when copying this character to a different project.
     private fun registerInputActions() {
         val inputKeyActions = mapOf(
-            "move_left".asStringName() to Key.KEY_A,
-            "move_right".asStringName() to Key.KEY_D,
-            "move_up".asStringName() to Key.KEY_W,
-            "move_down".asStringName() to Key.KEY_S,
-            "jump".asStringName() to Key.KEY_SPACE,
-            "swap_weapons".asStringName() to Key.KEY_TAB,
-            "pause".asStringName() to Key.KEY_ESCAPE,
-            "camera_left".asStringName() to Key.KEY_Q,
-            "camera_right".asStringName() to Key.KEY_E,
-            "camera_up".asStringName() to Key.KEY_R,
-            "camera_down".asStringName() to Key.KEY_F,
+            "move_left".asStringName() to Key.A,
+            "move_right".asStringName() to Key.D,
+            "move_up".asStringName() to Key.W,
+            "move_down".asStringName() to Key.S,
+            "jump".asStringName() to Key.SPACE,
+            "swap_weapons".asStringName() to Key.TAB,
+            "pause".asStringName() to Key.ESCAPE,
+            "camera_left".asStringName() to Key.Q,
+            "camera_right".asStringName() to Key.E,
+            "camera_up".asStringName() to Key.R,
+            "camera_down".asStringName() to Key.F,
         )
 
         val inputMouseActions = mapOf(
-            "attack".asStringName() to MouseButton.MOUSE_BUTTON_LEFT,
-            "aim".asStringName() to MouseButton.MOUSE_BUTTON_RIGHT,
+            "attack".asStringName() to MouseButton.LEFT,
+            "aim".asStringName() to MouseButton.RIGHT,
         )
 
         inputKeyActions.forEach { (action, key) ->

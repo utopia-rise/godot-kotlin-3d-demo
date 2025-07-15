@@ -1610,6 +1610,4 @@ skeleton = NodePath("../..")
 stream = ExtResource("17_mil5a")
 autoplay = true
 
-[connection signal="weapon_switched" from="Player" to="weapon_switch_ui" method="switch_to"]
-
 [editable path="NavigationRegion3D/terrain_main_ground"]
