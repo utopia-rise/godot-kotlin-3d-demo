@@ -21,7 +21,7 @@ class Icone : TextureRect() {
             arrayOf(Color.white, Color(1, 1, 1, disabledAlpha))
         }
 
-        val tween = createTween()!!
-        tween.tweenProperty(this, "modulate".asNodePath(), fromTo[0], 0.2)!!.from(fromTo[1])
+        val tween = createTween()
+        tween.tweenProperty(this, "modulate".asNodePath(), fromTo[0], 0.2).from(fromTo[1])
     }
 }

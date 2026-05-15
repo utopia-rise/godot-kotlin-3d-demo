@@ -3,21 +3,19 @@
 
 registeredName = Beebot
 fqName = Enemies.Beebot
-relativeSourcePath = demo/Enemies/Beebot.kt
 baseType = RigidBody3D
 supertypes = [
     Enemies.Enemy,
 	godot.api.RigidBody3D,
-	shared.Damageable,
 	godot.api.PhysicsBody3D,
 	godot.api.CollisionObject3D,
 	godot.api.Node3D,
 	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
+	shared.Damageable,
 	godot.common.interop.NativeWrapper,
-	godot.common.interop.NativePointer,
-	kotlin.Any
+	godot.common.interop.NativePointer
 ]
 signals = [
     

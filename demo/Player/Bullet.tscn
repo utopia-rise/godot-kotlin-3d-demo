@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bguebyvtegnv8"]
+[gd_scene format=3 uid="uid://bguebyvtegnv8"]
 
-[ext_resource type="Script" uid="uid://def0vdwm7folg" path="res://scripts/Player/Bullet.gdj" id="1_nhtye"]
+[ext_resource type="Script" uid="uid://x7fpopyoohnk" path="res://scripts/Player/Bullet.gdj" id="1_nhtye"]
 [ext_resource type="PackedScene" uid="uid://5ttf446nggra" path="res://demo/Player/BulletVisuals/BulletModel.tscn" id="2_68e7a"]
 [ext_resource type="AudioStream" uid="uid://c7w6ecthdjbuk" path="res://demo/Player/Sounds/lasershot-102078.wav" id="3_3vyow"]
 
@@ -11,7 +11,7 @@ point_count = 3
 [sub_resource type="SphereShape3D" id="SphereShape3D_qbh4s"]
 radius = 0.1
 
-[node name="Bullet" type="Node3D" node_paths=PackedStringArray("area", "bullet_visuals", "projectile_sound")]
+[node name="Bullet" type="Node3D" unique_id=1688832842 node_paths=PackedStringArray("area", "bullet_visuals", "projectile_sound")]
 script = ExtResource("1_nhtye")
 scale_decay = SubResource("Curve_2sbfy")
 distance_limit = 6.0
@@ -19,17 +19,17 @@ area = NodePath("Area3d")
 bullet_visuals = NodePath("Bullet")
 projectile_sound = NodePath("ProjectileSound")
 
-[node name="Area3d" type="Area3D" parent="."]
+[node name="Area3d" type="Area3D" parent="." unique_id=1075693192]
 
-[node name="CollisionShape3d" type="CollisionShape3D" parent="Area3d"]
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Area3d" unique_id=1406162588]
 shape = SubResource("SphereShape3D_qbh4s")
 
-[node name="Bullet" parent="." instance=ExtResource("2_68e7a")]
+[node name="Bullet" parent="." unique_id=410584313 instance=ExtResource("2_68e7a")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.15617, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=23009147]
 transform = Transform3D(1, 0, 0, 0, 0.835184, 0.549971, 0, -0.549971, 0.835184, -2.38419e-07, 2.55037, 2.78181)
 
-[node name="ProjectileSound" type="AudioStreamPlayer3D" parent="."]
+[node name="ProjectileSound" type="AudioStreamPlayer3D" parent="." unique_id=883914825]
 stream = ExtResource("3_3vyow")
 volume_db = 1.0

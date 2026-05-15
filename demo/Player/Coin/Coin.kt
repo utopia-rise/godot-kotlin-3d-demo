@@ -9,10 +9,12 @@ import godot.api.Node3D
 import godot.api.PhysicsBody3D
 import godot.api.PhysicsServer3D
 import godot.api.RigidBody3D
-import godot.core.Callable
-import godot.core.StringName
 import godot.core.Vector3
-import godot.extension.getNodeAs
+import godot.core.asStringName
+import godot.core.methodCallable0
+import godot.core.methodCallable1
+import godot.extension.api.getNodeAs
+import godot.extension.connectMethod
 import godot.global.GD
 import kotlin.random.Random
 
@@ -49,8 +51,8 @@ class Coin : RigidBody3D() {
         randPos.y = randHeight
         applyCentralImpulse(randPos)
 
-        getTree()!!.createTimer(0.5)!!.timeout.connect(this, Coin::onCoinDelayTimeout)
-        playerDetectionArea.bodyEntered.connect(this, Coin::onBodyEntered)
+        getTree()!!.createTimer(0.5).timeout.connectMethod(this, Coin::onCoinDelayTimeout)
+        playerDetectionArea.bodyEntered.connectMethod(this, Coin::onBodyEntered)
     }
 
     fun setTarget(newTarget: PhysicsBody3D) {
@@ -62,9 +64,9 @@ class Coin : RigidBody3D() {
             initialTweenPosition = globalPosition
             target = newTarget
 
-            val tween = createTween()!!
-            tween.tweenMethod(Callable(this, StringName("follow")), 0.0, 1.0, FOLLOW_TWEEN_DURATION)
-            tween.tweenCallback(Callable(this, StringName("collect")))
+            val tween = createTween()
+            tween.tweenMethod(methodCallable1(this, Coin::follow), 0.0, 1.0, FOLLOW_TWEEN_DURATION)
+            tween.tweenCallback(methodCallable0(this, Coin::collect))
         }
     }
 
@@ -77,14 +79,14 @@ class Coin : RigidBody3D() {
     fun collect() {
         collectAudio.pitchScale = GD.randfn(1.0f, 0.1f)
         collectAudio.play()
-        target!!.call(StringName("collect_coin"))
+        target!!.call("collect_coin".asStringName())
         hide()
-        collectAudio.finished.connect(this, Coin::queueFree)
+        collectAudio.finished.connectMethod(this, Coin::queueFree)
     }
 
     @RegisterFunction
     fun onBodyEntered(body: Node3D) {
-        if (body is PhysicsBody3D && body.hasMethod(StringName("collect_coin"))) {
+        if (body is PhysicsBody3D && body.hasMethod("collect_coin".asStringName())) {
             setTarget(body)
         }
     }

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://mb58xbunfaep"]
+[gd_scene format=3 uid="uid://mb58xbunfaep"]
 
-[ext_resource type="Script" uid="uid://m5i335ctxlce" path="res://scripts/icons/WeaponUI.gdj" id="1_5b5gt"]
+[ext_resource type="Script" uid="uid://cqrn0bj34udk7" path="res://scripts/icons/WeaponUI.gdj" id="1_5b5gt"]
 [ext_resource type="PackedScene" uid="uid://b1fed4rxaa3qj" path="res://demo/icons/icone.tscn" id="2_etwmu"]
 [ext_resource type="Texture2D" uid="uid://cj4npx16cmso7" path="res://demo/icons/bomb_icon.png" id="2_s3oom"]
 
@@ -11,7 +11,7 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[node name="weapon_switch_ui" type="PanelContainer" node_paths=PackedStringArray("flash_node", "grenade_node") groups=["camera_mode_toggle"]]
+[node name="weapon_switch_ui" type="PanelContainer" unique_id=1159540353 node_paths=PackedStringArray("flash_node", "grenade_node") groups=["camera_mode_toggle"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,30 +30,30 @@ script = ExtResource("1_5b5gt")
 flash_node = NodePath("Control/MarginContainer/Flash")
 grenade_node = NodePath("Control/MarginContainer2/Grenade")
 
-[node name="Control" type="HBoxContainer" parent="."]
+[node name="Control" type="HBoxContainer" parent="." unique_id=767405419]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=852265797]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 2
 
-[node name="Flash" parent="Control/MarginContainer" instance=ExtResource("2_etwmu")]
+[node name="Flash" parent="Control/MarginContainer" unique_id=30938546 instance=ExtResource("2_etwmu")]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1013088022]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 2
 
-[node name="Grenade" parent="Control/MarginContainer2" instance=ExtResource("2_etwmu")]
+[node name="Grenade" parent="Control/MarginContainer2" unique_id=1310319735 instance=ExtResource("2_etwmu")]
 layout_mode = 2
 texture = ExtResource("2_s3oom")

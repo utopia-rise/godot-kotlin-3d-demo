@@ -13,8 +13,8 @@ import godot.coroutines.await
 import godot.coroutines.awaitLoadAs
 import godot.coroutines.awaitMainThread
 import godot.coroutines.godotCoroutine
-import godot.extension.getNodeAs
-import godot.extension.instantiateAs
+import godot.extension.api.getNodeAs
+import godot.extension.api.instantiateAs
 import godot.global.GD
 import shared.Damageable
 

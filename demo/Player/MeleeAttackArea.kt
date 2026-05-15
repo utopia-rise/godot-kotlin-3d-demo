@@ -8,6 +8,7 @@ import godot.api.Area3D
 import godot.api.CollisionShape3D
 import godot.api.Node3D
 import godot.core.asStringName
+import godot.extension.connectMethod
 import shared.Damageable
 
 @RegisterClass
@@ -18,7 +19,7 @@ class MeleeAttackArea : Area3D() {
 
     @RegisterFunction
     override fun _ready() {
-        bodyEntered.connect(this, MeleeAttackArea::onBodyEntered)
+        bodyEntered.connectMethod(this, MeleeAttackArea::onBodyEntered)
     }
 
     @RegisterFunction

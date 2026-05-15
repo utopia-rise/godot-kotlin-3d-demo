@@ -10,8 +10,8 @@ import godot.api.RigidBody3D
 import godot.coroutines.await
 import godot.coroutines.awaitMainThread
 import godot.coroutines.godotCoroutine
-import godot.extension.instantiateAs
-import godot.extension.loadAs
+import godot.extension.api.instantiateAs
+import godot.extension.api.loadAs
 import shared.Damageable
 
 abstract class Enemy : RigidBody3D(), Damageable {
@@ -23,7 +23,7 @@ abstract class Enemy : RigidBody3D(), Damageable {
     private val coinScene = ResourceLoader.loadAs<PackedScene>("res://demo/Player/Coin/Coin.tscn")!!
 
     fun death() {
-        val timer = getTree()!!.createTimer(2.0)!!
+        val timer = getTree()!!.createTimer(2.0)
         godotCoroutine {
             timer.timeout.await()
 
@@ -36,6 +36,7 @@ abstract class Enemy : RigidBody3D(), Damageable {
             val coins = List(coinsCount) {
                 coinScene.instantiateAs<Coin>()!!
             }
+
 
             awaitMainThread {
                 for (coin in coins) {

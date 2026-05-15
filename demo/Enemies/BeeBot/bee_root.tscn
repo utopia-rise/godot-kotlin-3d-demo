@@ -1,19 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://4nwp6xgihjc7"]
+[gd_scene format=3 uid="uid://4nwp6xgihjc7"]
 
 [ext_resource type="PackedScene" uid="uid://f0vfmhexafmx" path="res://demo/Enemies/BeeBot/bee_bot.glb" id="1_icaj7"]
-[ext_resource type="Script" uid="uid://b3abuadodcdxk" path="res://scripts/Enemies/BeeBot/BeeRoot.gdj" id="1_pjy5a"]
+[ext_resource type="Script" uid="uid://boi3u0dkf2c3q" path="res://scripts/Enemies/BeeBot/BeeRoot.gdj" id="1_pjy5a"]
 [ext_resource type="Shader" uid="uid://cannek0t6gdeb" path="res://demo/shared/shaders/face_mat.gdshader" id="2_7vdnh"]
 [ext_resource type="Texture2D" uid="uid://d3i42hq0p8ijb" path="res://demo/shared/eye_mask.png" id="3_qgh3u"]
 [ext_resource type="Shader" uid="uid://bqqy2ic1resuk" path="res://demo/Enemies/BeeBot/bee_wings_shader.gdshader" id="4_hnl3k"]
 [ext_resource type="Texture2D" uid="uid://c4mdnjycm0yse" path="res://demo/Enemies/BeeBot/wing_pattern.png" id="5_expcp"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pylk6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xyws"]
 resource_local_to_scene = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.737255, 1, 0.505882, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6r4nv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yp6rg"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_7vdnh")
@@ -25,7 +25,7 @@ shader_parameter/screen_green_offset = Vector2(0, 0)
 shader_parameter/screen_blue_offset = Vector2(0, 0)
 shader_parameter/pixel_size = 32.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnyo1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nwio3"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_hnl3k")
@@ -1302,14 +1302,14 @@ animation = &"power_off"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2qkm7"]
 graph_offset = Vector2(-212, 130)
+nodes/output/position = Vector2(420, 160)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_b62t1")
 nodes/Add2/position = Vector2(260, 140)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_dmr3u")
 nodes/Animation/position = Vector2(100, 140)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_1g36q")
 "nodes/Animation 2/position" = Vector2(-80, 260)
-nodes/output/position = Vector2(420, 160)
-node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"output", 0, &"Add2"]
+node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xk6y0"]
 animation = &"Idle"
@@ -1323,14 +1323,14 @@ filters = ["Armature/Skeleton3D:wing_1.L", "Armature/Skeleton3D:wing_1.R", "Arma
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_imkye"]
 graph_offset = Vector2(-22.88, 95.7467)
+nodes/output/position = Vector2(580, 160)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_h8ft2")
 "nodes/Animation 2/position" = Vector2(160, 120)
 "nodes/Animation 2 2/node" = SubResource("AnimationNodeAnimation_xk6y0")
 "nodes/Animation 2 2/position" = Vector2(160, 240)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_dfaaq")
 nodes/Blend2/position = Vector2(387.04, 132.467)
-nodes/output/position = Vector2(580, 160)
-node_connections = [&"Blend2", 0, &"Animation 2", &"Blend2", 1, &"Animation 2 2", &"output", 0, &"Blend2"]
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation 2", &"Blend2", 1, &"Animation 2 2"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_73fwm"]
 
@@ -1356,19 +1356,19 @@ graph_offset = Vector2(-84, 47)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ifc16"]
 graph_offset = Vector2(-7, 25)
+nodes/output/position = Vector2(400, 80)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_ylhqe")
 nodes/StateMachine/position = Vector2(200, 80)
-nodes/output/position = Vector2(400, 80)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[node name="bee_root" type="Node3D" node_paths=PackedStringArray("state_machine", "bee_bot")]
+[node name="bee_root" type="Node3D" unique_id=878711828 node_paths=PackedStringArray("state_machine", "bee_bot")]
 script = ExtResource("1_pjy5a")
 state_machine = NodePath("AnimationTree")
 bee_bot = NodePath("bee_bot/Armature/Skeleton3D/bee_bot2")
 
-[node name="bee_bot" parent="." instance=ExtResource("1_icaj7")]
+[node name="bee_bot" parent="." unique_id=1278898038 instance=ExtResource("1_icaj7")]
 
-[node name="Skeleton3D" parent="bee_bot/Armature" index="0"]
+[node name="Skeleton3D" parent="bee_bot/Armature" parent_id_path=PackedInt32Array(1278898038, 1338829125) index="0" unique_id=1349385290]
 bones/1/position = Vector3(-3.34694e-10, 0.231858, 0.169885)
 bones/2/rotation = Quaternion(2.3909e-08, 0.852809, 0.522224, 3.72774e-08)
 bones/3/rotation = Quaternion(0.374547, 4.07077e-08, -1.74392e-08, 0.927208)
@@ -1409,18 +1409,17 @@ bones/37/rotation = Quaternion(0.180935, 0.00868968, -0.133606, 0.974339)
 bones/38/rotation = Quaternion(-0.361782, 0.0456318, 0.753329, 0.547291)
 bones/39/rotation = Quaternion(2.79963e-09, -2.05163e-09, -0.0252876, 0.99968)
 
-[node name="bee_bot2" parent="bee_bot/Armature/Skeleton3D" index="0"]
-surface_material_override/1 = SubResource("StandardMaterial3D_pylk6")
-surface_material_override/2 = SubResource("ShaderMaterial_6r4nv")
-surface_material_override/3 = SubResource("ShaderMaterial_hnyo1")
+[node name="bee_bot2" parent="bee_bot/Armature/Skeleton3D" index="0" unique_id=1604341458]
+surface_material_override/1 = SubResource("StandardMaterial3D_1xyws")
+surface_material_override/2 = SubResource("ShaderMaterial_yp6rg")
+surface_material_override/3 = SubResource("ShaderMaterial_nwio3")
 
-[node name="AnimationPlayer" parent="bee_bot" index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_nto2u"),
-"custom animations": SubResource("AnimationLibrary_eu2hu")
-}
+[node name="AnimationPlayer" parent="bee_bot" index="1" unique_id=1630764209]
+libraries/ = SubResource("AnimationLibrary_nto2u")
+"libraries/custom animations" = SubResource("AnimationLibrary_eu2hu")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=388839692]
+root_node = NodePath("../bee_bot")
 tree_root = SubResource("AnimationNodeBlendTree_ifc16")
 anim_player = NodePath("../bee_bot/AnimationPlayer")
 parameters/StateMachine/power_off/Add2/add_amount = 1.0

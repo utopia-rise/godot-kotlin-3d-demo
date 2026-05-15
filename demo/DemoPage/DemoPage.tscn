@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://cnj0t3ad178q6"]
+[gd_scene format=3 uid="uid://cnj0t3ad178q6"]
 
-[ext_resource type="Script" uid="uid://ixgmt4ivmav3" path="res://scripts/DemoPage/DemoPage.gdj" id="1_rvp4j"]
+[ext_resource type="Script" uid="uid://bmcdnan8smn0e" path="res://scripts/DemoPage/DemoPage.gdj" id="1_rvp4j"]
 [ext_resource type="Shader" uid="uid://dbp8tbyc4kpnm" path="res://demo/DemoPage/Assets/BlurShader.gdshader" id="2_07raf"]
 [ext_resource type="Texture2D" uid="uid://3fxtm3u8im2" path="res://demo/DemoPage/Assets/gdquest_logo_white.svg" id="3_n7elw"]
 [ext_resource type="Texture2D" uid="uid://c1h5gk8rsf3va" path="res://demo/DemoPage/Assets/RoundedRectangle.png" id="4_paxwi"]
@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cwxudh6hj0dx" path="res://demo/DemoPage/ControllerIcons/l2_button.png" id="19_ymr5x"]
 [ext_resource type="Texture2D" uid="uid://dnk6rxv8ejgny" path="res://demo/DemoPage/ControllerIcons/buttonStart.png" id="21_hfiqr"]
 [ext_resource type="Texture2D" uid="uid://u8dgw2xh1ofy" path="res://demo/DemoPage/Assets/discord-icon.png" id="24_2yjb0"]
-[ext_resource type="Script" uid="uid://dpolg7d8iqgf3" path="res://scripts/DemoPage/LinkButton.gdj" id="25_a582v"]
+[ext_resource type="Script" uid="uid://cda4wdul640bu" path="res://scripts/DemoPage/LinkButton.gdj" id="25_a582v"]
 [ext_resource type="Texture2D" uid="uid://4028ms3tu0f0" path="res://demo/DemoPage/Assets/twitter-icon.png" id="26_jj2ra"]
 [ext_resource type="Texture2D" uid="uid://bu5fw8vbrfsmm" path="res://demo/DemoPage/Assets/itch-icon.png" id="27_mjmj1"]
 
@@ -50,7 +50,7 @@ font_size = 32
 font = ExtResource("7_8vsh6")
 font_size = 26
 
-[node name="DemoPage" type="Node" node_paths=PackedStringArray("demo_page_root", "resume_button", "exit_button", "keyboard_button", "joypad_button", "grid_container_keyboard", "grid_container_joypad")]
+[node name="DemoPage" type="Node" unique_id=1883284998 node_paths=PackedStringArray("demo_page_root", "resume_button", "exit_button", "keyboard_button", "joypad_button", "grid_container_keyboard", "grid_container_joypad")]
 process_mode = 3
 script = ExtResource("1_rvp4j")
 demo_page_root = NodePath("CanvasLayer/DemoPageRoot")
@@ -61,10 +61,10 @@ joypad_button = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescripti
 grid_container_keyboard = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard")
 grid_container_joypad = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=983734818]
 layer = 128
 
-[node name="DemoPageRoot" type="Control" parent="CanvasLayer"]
+[node name="DemoPageRoot" type="Control" parent="CanvasLayer" unique_id=1740984600]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Blur" type="ColorRect" parent="CanvasLayer/DemoPageRoot"]
+[node name="Blur" type="ColorRect" parent="CanvasLayer/DemoPageRoot" unique_id=889426547]
 material = SubResource("ShaderMaterial_oq2x4")
 layout_mode = 0
 anchor_right = 1.0
@@ -80,20 +80,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot"]
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot" unique_id=324468469]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Control" parent="CanvasLayer/DemoPageRoot/Content"]
+[node name="Title" type="Control" parent="CanvasLayer/DemoPageRoot/Content" unique_id=1534042148]
 modulate = Color(1, 1, 1, 0.54902)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Title"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Title" unique_id=664712676]
 layout_mode = 0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -105,7 +105,7 @@ grow_vertical = 2
 texture = ExtResource("3_n7elw")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Title"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Title" unique_id=1786894118]
 layout_mode = 0
 offset_left = 1043.0
 offset_top = 158.0
@@ -114,15 +114,15 @@ offset_bottom = 189.0
 text = "DEMO"
 label_settings = SubResource("LabelSettings_swl1q")
 
-[node name="Content" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content"]
+[node name="Content" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content" unique_id=1830884155]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SampleImageContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content"]
+[node name="SampleImageContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content" unique_id=1121165092]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Mask" type="NinePatchRect" parent="CanvasLayer/DemoPageRoot/Content/Content/SampleImageContainer"]
+[node name="Mask" type="NinePatchRect" parent="CanvasLayer/DemoPageRoot/Content/Content/SampleImageContainer" unique_id=1179793217]
 clip_children = 1
 layout_mode = 0
 anchor_left = 0.277
@@ -142,7 +142,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/SampleImageContainer/Mask"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/SampleImageContainer/Mask" unique_id=1498614084]
 layout_mode = 0
 offset_left = -844.0
 offset_top = -216.0
@@ -150,11 +150,11 @@ offset_right = 1076.0
 offset_bottom = 864.0
 texture = ExtResource("5_3cf56")
 
-[node name="GameDescription" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content"]
+[node name="GameDescription" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content" unique_id=615020856]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription" unique_id=1632868898]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -163,16 +163,16 @@ grow_vertical = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 52
 
-[node name="ContentContainer" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer"]
+[node name="ContentContainer" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer" unique_id=1637049713]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer" unique_id=1996378217]
 layout_mode = 2
 size_flags_vertical = 1
 text = "Third-Person Shooter"
 label_settings = SubResource("LabelSettings_y4f87")
 
-[node name="Inspirations" type="RichTextLabel" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+[node name="Inspirations" type="RichTextLabel" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer" unique_id=83353248]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("6_r37av")
@@ -180,22 +180,22 @@ theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "[color=#daeaf6]Ratchet & Clank[/color] · [color=#f0c1aa]Banjo Kazooie[/color]"
 
-[node name="DescriptionMargin" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+[node name="DescriptionMargin" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer" unique_id=1813084459]
 layout_mode = 2
 theme_override_constants/margin_right = 10
 
-[node name="Description" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/DescriptionMargin"]
+[node name="Description" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/DescriptionMargin" unique_id=2026111192]
 layout_mode = 2
 size_flags_vertical = 1
 text = "This demo features a simple character controller for Third-Person Shooter games. The player can move around, jump, attack, shoot projectiles and launch grenades. Collect Godot-coins by destroying crates!"
 label_settings = SubResource("LabelSettings_g5g84")
 autowrap_mode = 2
 
-[node name="ControlsDescription" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer"]
+[node name="ControlsDescription" type="Control" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer" unique_id=857836676]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription" unique_id=418229264]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -204,248 +204,248 @@ grow_vertical = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer" unique_id=861613079]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="GridContainerKeyboard" type="GridContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer"]
+[node name="GridContainerKeyboard" type="GridContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer" unique_id=45641750]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 columns = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=1218341022]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer" unique_id=535028079]
 layout_mode = 2
 texture = ExtResource("8_ftfx8")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer" unique_id=1971451952]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Movement"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=114733993]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer2" unique_id=1393253562]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("9_0yun6")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer2" unique_id=487554960]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Jump"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=733659330]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer6" unique_id=57362075]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("10_6dsjm")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer6"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer6" unique_id=534571442]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Change Weapon"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=88976224]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer7"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer7" unique_id=506041935]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("11_ittqo")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer7"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer7" unique_id=398027938]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Pause"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=1718644440]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer3" unique_id=607499425]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("10_y1v2l")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer3"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer3" unique_id=1030121440]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Camera"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=1504590168]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer4" unique_id=332001620]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("11_pk6rw")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer4"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer4" unique_id=1078469603]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Attack"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard" unique_id=1943521429]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer5" unique_id=671705649]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("12_baaxu")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer5"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard/HBoxContainer5" unique_id=1264471989]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Aim"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="GridContainerJoypad" type="GridContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer"]
+[node name="GridContainerJoypad" type="GridContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer" unique_id=1478903898]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=1889862305]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer" unique_id=1283238665]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("9_16jmy")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer" unique_id=100753909]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Movement"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=2025758953]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer3" unique_id=1181865844]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("15_svyf1")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer3"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer3" unique_id=81174489]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Camera"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=2110699140]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer2" unique_id=177828895]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("16_rl0yy")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer2" unique_id=1670533204]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Jump"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=1712238028]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer6"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer6" unique_id=797848588]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("17_det7k")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer6"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer6" unique_id=1441069593]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Change Weapon"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=929077104]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer4"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer4" unique_id=756515976]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("18_64dkh")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer4"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer4" unique_id=1847532822]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Attack"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=1619261776]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer5"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer5" unique_id=1849873126]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("19_ymr5x")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer5"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer5" unique_id=998345750]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Aim"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad" unique_id=844816208]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer7"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer7" unique_id=1971100584]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("21_hfiqr")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer7"]
+[node name="Label" type="Label" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad/HBoxContainer7" unique_id=1066722276]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ": Pause / Resume"
 label_settings = SubResource("LabelSettings_f30p8")
 
-[node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer" unique_id=2133354406]
 layout_mode = 2
 
-[node name="KeyboardButton" type="Button" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer"]
+[node name="KeyboardButton" type="Button" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer" unique_id=809771547]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 64)
 layout_mode = 2
@@ -454,7 +454,7 @@ icon = ExtResource("10_uxdfh")
 icon_alignment = 1
 expand_icon = true
 
-[node name="JoypadButton" type="Button" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer"]
+[node name="JoypadButton" type="Button" parent="CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer" unique_id=679145619]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 64)
 layout_mode = 2
@@ -463,12 +463,12 @@ icon = ExtResource("11_eh4lo")
 icon_alignment = 1
 expand_icon = true
 
-[node name="MarginContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content"]
+[node name="MarginContainer" type="Control" parent="CanvasLayer/DemoPageRoot/Content" unique_id=307003033]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer"]
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer" unique_id=1092873888]
 layout_mode = 0
 anchor_left = 0.368
 anchor_top = 0.5
@@ -485,7 +485,7 @@ size_flags_stretch_ratio = 0.2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Resume" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+[node name="Resume" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons" unique_id=192901024]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("6_r37av")
@@ -493,7 +493,7 @@ theme_override_font_sizes/font_size = 26
 action_mode = 0
 text = "  Resume demo  "
 
-[node name="Exit" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons"]
+[node name="Exit" type="Button" parent="CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons" unique_id=1804323277]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("6_r37av")
@@ -501,7 +501,7 @@ theme_override_font_sizes/font_size = 26
 action_mode = 0
 text = "  Exit demo  "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DemoPageRoot" unique_id=1513155963]
 layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
@@ -514,7 +514,7 @@ offset_bottom = -54.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="DiscordButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer"]
+[node name="DiscordButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer" unique_id=1646257227]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -524,7 +524,7 @@ stretch_mode = 5
 script = ExtResource("25_a582v")
 link = "https://discord.gg/BDe4y6Z4cf"
 
-[node name="TwitterButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer"]
+[node name="TwitterButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer" unique_id=101017253]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
@@ -534,7 +534,7 @@ stretch_mode = 5
 script = ExtResource("25_a582v")
 link = "https://twitter.com/NathanGDQuest"
 
-[node name="ItchButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer"]
+[node name="ItchButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer" unique_id=48449406]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2

@@ -4,16 +4,17 @@ import Player.Player
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.api.Area3D
-import godot.core.connect
+import godot.api.Node3D
+import godot.extension.connectLambda
 
 @RegisterClass
 class DeathPlane : Area3D() {
 
     @RegisterFunction
     override fun _ready() {
-        bodyEntered.connect {
-            if (it is Player) {
-                it.resetPosition()
+        bodyEntered.connectLambda { body: Node3D ->
+            if (body is Player) {
+                body.resetPosition()
             }
         }
     }

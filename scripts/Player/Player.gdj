@@ -3,20 +3,18 @@
 
 registeredName = Player
 fqName = Player.Player
-relativeSourcePath = demo/Player/Player.kt
 baseType = CharacterBody3D
 supertypes = [
     godot.api.CharacterBody3D,
-	shared.Damageable,
 	godot.api.PhysicsBody3D,
 	godot.api.CollisionObject3D,
 	godot.api.Node3D,
 	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
+	shared.Damageable,
 	godot.common.interop.NativeWrapper,
-	godot.common.interop.NativePointer,
-	kotlin.Any
+	godot.common.interop.NativePointer
 ]
 signals = [
     weapon_switched

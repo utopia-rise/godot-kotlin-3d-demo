@@ -11,14 +11,15 @@ import godot.api.AnimationPlayer
 import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
 import godot.api.CollisionShape3D
-import godot.api.Node
 import godot.api.Node3D
 import godot.api.PackedScene
 import godot.api.ResourceLoader
 import godot.core.Vector3
 import godot.core.asStringName
-import godot.extension.instantiateAs
-import godot.extension.loadAs
+import godot.extension.api.instantiateAs
+import godot.extension.api.loadAs
+import godot.extension.SignalConnector
+import godot.extension.connectMethod
 
 @RegisterClass
 class Beebot : Enemy() {
@@ -64,6 +65,8 @@ class Beebot : Enemy() {
     private val foundPlayerName = "found_player".asStringName()
     private val lostPlayerName = "lost_player".asStringName()
     private val disabledName = "disabled".asStringName()
+    private lateinit var bodyEnteredConnection: SignalConnector
+    private lateinit var bodyExitedConnection: SignalConnector
 
     var shootCount = 0.0
     var target: Node3D? = null
@@ -71,8 +74,8 @@ class Beebot : Enemy() {
 
     @RegisterFunction
     override fun _ready() {
-        detectionArea.bodyEntered.connect(this, Beebot::onBodyEntered)
-        detectionArea.bodyExited.connect(this, Beebot::onBodyExited)
+        bodyEnteredConnection = detectionArea.bodyEntered.connectMethod(this, Beebot::onBodyEntered)
+        bodyExitedConnection = detectionArea.bodyExited.connectMethod(this, Beebot::onBodyExited)
         beeRoot.playIdle()
     }
 
@@ -104,8 +107,8 @@ class Beebot : Enemy() {
     }
 
     @RegisterFunction
-    override fun damage(impactPoint: Vector3, force: Vector3) {
-        applyImpulse(force.limitLength(3.0), impactPoint)
+    override fun damage(impactPoint: Vector3, velocity: Vector3) {
+        applyImpulse(velocity.limitLength(3.0), impactPoint)
 
         if (!alive) {
             return
@@ -116,8 +119,8 @@ class Beebot : Enemy() {
 
         flyingAnimationPlayer.stop()
         flyingAnimationPlayer.seek(0.0, true)
-        detectionArea.bodyEntered.disconnect(this, Beebot::onBodyEntered)
-        detectionArea.bodyExited.disconnect(this, Beebot::onBodyExited)
+        bodyEnteredConnection.disconnect()
+        bodyExitedConnection.disconnect()
         target = null
         deathMeshCollider.setDeferred(disabledName, false)
 
@@ -128,7 +131,7 @@ class Beebot : Enemy() {
     }
 
     @RegisterFunction
-    fun onBodyEntered(body: Node) {
+    fun onBodyEntered(body: Node3D) {
         if (body is Player) {
             shootCount = 0.0
             target = body
@@ -137,7 +140,7 @@ class Beebot : Enemy() {
     }
 
     @RegisterFunction
-    fun onBodyExited(body: Node) {
+    fun onBodyExited(body: Node3D) {
         if (body is Player) {
             target = null
             reactionAnimationPlayer.play(lostPlayerName)
