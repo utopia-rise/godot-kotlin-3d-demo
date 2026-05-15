@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3765dge2xh0"]
+[gd_scene format=3 uid="uid://d3765dge2xh0"]
 
 [ext_resource type="PackedScene" uid="uid://bmg4l7oil4aeu" path="res://demo/Player/GrenadeVisuals/grenade/grenade.glb" id="1_2hras"]
-[ext_resource type="Script" uid="uid://cjobaxqwyivp6" path="res://scripts/Player/GrenadeVisuals/grenade/GrenadeVisuals.gdj" id="2_us1wn"]
+[ext_resource type="Script" uid="uid://dsrdnoppf8t3j" path="res://scripts/Player/GrenadeVisuals/grenade/GrenadeVisuals.gdj" id="2_us1wn"]
 [ext_resource type="Material" uid="uid://bqiflyx3ow1ul" path="res://demo/Player/GrenadeVisuals/grenade/grenade.material" id="3_wctyh"]
 
 [sub_resource type="Animation" id="Animation_afydg"]
@@ -42,16 +42,14 @@ _data = {
 &"wave": SubResource("Animation_cxnel")
 }
 
-[node name="grenade" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_2hras")]
+[node name="grenade" unique_id=1303543573 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_2hras")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 script = ExtResource("2_us1wn")
 animation_player = NodePath("AnimationPlayer")
 
-[node name="grenade_mesh" parent="." index="0"]
+[node name="grenade_mesh" parent="." index="0" unique_id=811644556]
 surface_material_override/0 = ExtResource("3_wctyh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=695976055]
 reset_on_save = false
-libraries = {
-"": SubResource("AnimationLibrary_icflb")
-}
+libraries/ = SubResource("AnimationLibrary_icflb")

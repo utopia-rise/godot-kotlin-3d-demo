@@ -11,10 +11,11 @@ import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
 import godot.api.CollisionShape3D
 import godot.api.NavigationAgent3D
-import godot.api.Node
 import godot.api.Node3D
 import godot.core.Vector3
 import godot.core.asStringName
+import godot.extension.SignalConnector
+import godot.extension.connectMethod
 
 @RegisterClass
 class Beetle : Enemy() {
@@ -58,14 +59,16 @@ class Beetle : Enemy() {
     private val foundPlayerName = "found_player".asStringName()
     private val lostPlayerName = "lost_player".asStringName()
     private val disabledName = "disabled".asStringName()
+    private lateinit var bodyEnteredConnection: SignalConnector
+    private lateinit var bodyExitedConnection: SignalConnector
 
     var target: Node3D? = null
     var alive = true
 
     @RegisterFunction
     override fun _ready() {
-        detectionArea.bodyEntered.connect(this, Beetle::onBodyEntered)
-        detectionArea.bodyExited.connect(this, Beetle::onBodyExited)
+        bodyEnteredConnection = detectionArea.bodyEntered.connectMethod(this, Beetle::onBodyEntered)
+        bodyExitedConnection = detectionArea.bodyExited.connectMethod(this, Beetle::onBodyExited)
         beetleSkin.idle()
     }
 
@@ -107,9 +110,9 @@ class Beetle : Enemy() {
     }
 
     @RegisterFunction
-    override fun damage(impactPoint: Vector3, force: Vector3) {
+    override fun damage(impactPoint: Vector3, velocity: Vector3) {
         lockRotation = false
-        applyImpulse(force.limitLength(3.0), impactPoint)
+        applyImpulse(velocity.limitLength(3.0), impactPoint)
 
         if (!alive) {
             return
@@ -119,8 +122,8 @@ class Beetle : Enemy() {
         alive = false
         beetleSkin.powerOff()
 
-        detectionArea.bodyEntered.disconnect(this, Beetle::onBodyEntered)
-        detectionArea.bodyExited.disconnect(this, Beetle::onBodyExited)
+        bodyEnteredConnection.disconnect()
+        bodyExitedConnection.disconnect()
         target = null
         deathCollisionShape.setDeferred(disabledName, false)
 
@@ -133,7 +136,7 @@ class Beetle : Enemy() {
     }
 
     @RegisterFunction
-    fun onBodyEntered(body: Node) {
+    fun onBodyEntered(body: Node3D) {
         if (body is Player) {
             target = body
             reactionAnimationPlayer.play(foundPlayerName)
@@ -141,7 +144,7 @@ class Beetle : Enemy() {
     }
 
     @RegisterFunction
-    fun onBodyExited(body: Node) {
+    fun onBodyExited(body: Node3D) {
         if (body is Player) {
             target = null
             reactionAnimationPlayer.play(lostPlayerName)

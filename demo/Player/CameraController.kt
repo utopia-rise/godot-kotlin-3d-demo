@@ -82,7 +82,7 @@ class CameraController : Node3D() {
     private val cameraDownAction = "camera_down".asStringName()
 
     @RegisterFunction
-    override fun _unhandledInput(event: InputEvent?) {
+    override fun _unhandledInput(event: InputEvent) {
         if (event is InputEventMouseMotion && Input.getMouseMode() == Input.MouseMode.CAPTURED) {
             rotationInput = -event.relative.x * mouseSensitivity
             tiltInput = -event.relative.y * mouseSensitivity

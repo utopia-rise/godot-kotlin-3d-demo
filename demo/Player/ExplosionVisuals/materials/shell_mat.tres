@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b68u2dl4qlooi"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b68u2dl4qlooi"]
 
 [ext_resource type="Shader" uid="uid://cmdbdufqjnfdm" path="res://demo/Player/ExplosionVisuals/shaders/shell_shader.gdshader" id="1_48kpm"]
 
@@ -9,8 +9,8 @@ fractal_type = 0
 fractal_octaves = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q4shp"]
-seamless = true
 noise = SubResource("FastNoiseLite_4kwk8")
+seamless = true
 
 [resource]
 resource_local_to_scene = true

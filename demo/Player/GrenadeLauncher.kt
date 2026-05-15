@@ -110,7 +110,7 @@ class GrenadeLauncher : Node3D() {
             snapMesh.visible = hasTarget
 
             if (hasTarget) {
-                toTarget = collider!!.globalPosition - launchPoint.globalPosition
+                toTarget = collider.globalPosition - launchPoint.globalPosition
                 snapMesh.globalPosition = launchPoint.globalPosition + toTarget
                 snapMesh.lookAt(launchPoint.globalPosition)
             }

@@ -42,7 +42,7 @@ class CameraMode : Node3D() {
     }
 
     @RegisterFunction
-    override fun _input(event: InputEvent?) {
+    override fun _input(event: InputEvent) {
         if (event is InputEventKey) {
             if (event.isPressed() && !event.isEcho()) {
                 if (event.keycode == Key.F10) {

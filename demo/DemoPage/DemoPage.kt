@@ -10,11 +10,12 @@ import godot.api.GridContainer
 import godot.api.Input
 import godot.api.InputEvent
 import godot.api.Node
-import godot.core.Callable
 import godot.core.Color
 import godot.core.asNodePath
 import godot.core.asStringName
-import godot.core.toGodotName
+import godot.core.methodCallable0
+import godot.extension.connectLambda
+import godot.extension.connectMethod
 
 @RegisterClass
 class DemoPage : Node() {
@@ -53,10 +54,6 @@ class DemoPage : Node() {
 
     private var demoMouseMode: Input.MouseMode = Input.MouseMode.VISIBLE
 
-    private val changeInstructionName = "changeInstruction".toGodotName()
-    private val quitName = "quit".toGodotName()
-    private val hideName = "hide".toGodotName()
-
     @RegisterFunction
     override fun _ready() {
         val tree = getTree() ?: return
@@ -64,17 +61,10 @@ class DemoPage : Node() {
         demoMouseMode = Input.getMouseMode()
         Input.setMouseMode(Input.MouseMode.VISIBLE)
 
-        resumeButton.pressed.connect(this, DemoPage::resumeDemo)
-
-        val quitCallable = Callable(getTree()!!, quitName).bind(0)
-        exitButton.pressed.connect(quitCallable)
-
-        val changeCallable = Callable(this, changeInstructionName)
-        val keyboardCallable = changeCallable.bind(InstructionType.KEYBOARD.ordinal)
-        val joypadCallable = changeCallable.bind(InstructionType.JOYPAD.ordinal)
-
-        keyboardButton.pressed.connect(keyboardCallable)
-        joypadButton.pressed.connect(joypadCallable)
+        resumeButton.pressed.connectMethod(this, DemoPage::resumeDemo)
+        exitButton.pressed.connectLambda { getTree()?.quit(0) }
+        keyboardButton.pressed.connectLambda { changeInstruction(InstructionType.KEYBOARD.ordinal) }
+        joypadButton.pressed.connectLambda { changeInstruction(InstructionType.JOYPAD.ordinal) }
 
         changeInstruction(
             if (Input.getConnectedJoypads().isNotEmpty()) {
@@ -86,8 +76,8 @@ class DemoPage : Node() {
     }
 
     @RegisterFunction
-    override fun _input(event: InputEvent?) {
-        if (event!!.isActionPressed("pause".asStringName()) && !event.isEcho()) {
+    override fun _input(event: InputEvent) {
+        if (event.isActionPressed("pause".asStringName()) && !event.isEcho()) {
             if (getTree()?.paused == true) {
                 resumeDemo()
             } else {
@@ -122,19 +112,18 @@ class DemoPage : Node() {
         demoMouseMode = Input.getMouseMode()
         getTree()?.let { it.paused = true }
         demoPageRoot.show()
-        createTween()?.tweenProperty(demoPageRoot, demoPageRoot::modulate.name.asNodePath(), Color.white, 0.3)
+        createTween().tweenProperty(demoPageRoot, demoPageRoot::modulate.name.asNodePath(), Color.white, 0.3)
         Input.setMouseMode(Input.MouseMode.VISIBLE)
     }
 
     @RegisterFunction
     fun resumeDemo() {
         getTree()?.let { it.paused = false }
-        createTween()?.apply {
+        createTween().apply {
             tweenProperty(demoPageRoot, demoPageRoot::modulate.name.asNodePath(), Color.transparent, 0.3)
-            tweenCallback(Callable(demoPageRoot, hideName))
+            tweenCallback(methodCallable0(demoPageRoot, Control::hide))
         }
 
         Input.setMouseMode(demoMouseMode)
     }
 }
-

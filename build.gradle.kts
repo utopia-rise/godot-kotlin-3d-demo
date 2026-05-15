@@ -1,5 +1,8 @@
+import godot.gradle.GodotLanguage
+import godot.entrygenerator.settings.RegistrationFileLayoutMode
+
 plugins {
-    id("com.utopia-rise.godot-kotlin-jvm") version "0.13.1-4.4.1"
+    id("com.utopia-rise.godot-kotlin-jvm") version "0.16.0-4.6.2"
 }
 
 repositories {
@@ -9,8 +12,9 @@ repositories {
 }
 
 godot {
-    registrationFileBaseDir.set(projectDir.resolve("scripts"))
-    isRegistrationFileHierarchyEnabled.set(true)
+    languages.set(setOf(GodotLanguage.KOTLIN))
+    registrationFilesDirectory.set(projectDir.resolve("scripts"))
+    registrationFilesLayoutMode.set(RegistrationFileLayoutMode.HIERARCHICAL)
     isGodotCoroutinesEnabled.set(true)
 }
 

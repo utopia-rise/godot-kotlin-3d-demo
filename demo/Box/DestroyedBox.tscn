@@ -1,47 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://j4nc13akhgva"]
+[gd_scene format=3 uid="uid://j4nc13akhgva"]
 
 [ext_resource type="PackedScene" uid="uid://ciohp0157xfv3" path="res://demo/Box/BoxVisuals/DestroyedBox.glb" id="1_ovk58"]
-[ext_resource type="Script" uid="uid://dwmw2sysgwnrk" path="res://scripts/Box/DestroyedBox.gdj" id="2_e2rca"]
+[ext_resource type="Script" uid="uid://bprui8u616xl1" path="res://scripts/Box/DestroyedBox.gdj" id="2_e2rca"]
 
-[node name="DestroyedBox" groups=["damageables", "targeteables"] instance=ExtResource("1_ovk58")]
+[node name="DestroyedBox" unique_id=1702178881 groups=["damageables", "targeteables"] instance=ExtResource("1_ovk58")]
 script = ExtResource("2_e2rca")
 
-[node name="crate_001" parent="." index="0"]
+[node name="crate_001" parent="." index="0" unique_id=63209263]
 visible = false
 collision_layer = 0
 collision_mask = 0
 sleeping = true
 freeze = true
 
-[node name="crate_002" parent="." index="1"]
+[node name="crate_002" parent="." index="1" unique_id=1496860983]
 visible = false
 collision_layer = 0
 collision_mask = 0
 sleeping = true
 freeze = true
 
-[node name="crate_003" parent="." index="2"]
+[node name="crate_003" parent="." index="2" unique_id=1483248313]
 visible = false
 collision_layer = 0
 collision_mask = 0
 sleeping = true
 freeze = true
 
-[node name="crate_004" parent="." index="3"]
+[node name="crate_004" parent="." index="3" unique_id=1669591432]
 visible = false
 collision_layer = 0
 collision_mask = 0
 sleeping = true
 freeze = true
 
-[node name="crate_005" parent="." index="4"]
+[node name="crate_005" parent="." index="4" unique_id=1915998506]
 visible = false
 collision_layer = 0
 collision_mask = 0
 sleeping = true
 freeze = true
 
-[node name="crate_006" parent="." index="5"]
+[node name="crate_006" parent="." index="5" unique_id=717404455]
 visible = false
 collision_layer = 0
 collision_mask = 0

@@ -6,6 +6,7 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.api.OS
 import godot.api.TextureButton
+import godot.extension.connectMethod
 
 @RegisterClass
 class LinkButton : TextureButton() {
@@ -16,7 +17,7 @@ class LinkButton : TextureButton() {
 
     @RegisterFunction
     override fun _ready() {
-        pressed.connect(this, LinkButton::onButtonPressed)
+        pressed.connectMethod(this, LinkButton::onButtonPressed)
     }
 
     @RegisterFunction

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cnvmsr64tkgyn"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cnvmsr64tkgyn"]
 
 [ext_resource type="Shader" uid="uid://dn2r6llj8rby1" path="res://demo/Enemies/smoke_puff/smoke_ball_middle.gdshader" id="1_fb4cj"]
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://rn45gytkk6tv"]
+[gd_scene format=3 uid="uid://rn45gytkk6tv"]
 
-[ext_resource type="Script" uid="uid://dnn3vsjvfahkf" path="res://scripts/Enemies/Beebot.gdj" id="1_bir23"]
+[ext_resource type="Script" uid="uid://c1phy8e7x08wr" path="res://scripts/Enemies/Beebot.gdj" id="1_bir23"]
 [ext_resource type="PackedScene" uid="uid://4nwp6xgihjc7" path="res://demo/Enemies/BeeBot/bee_root.tscn" id="2_btoc7"]
 [ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://demo/Enemies/Sounds/robot_defeat.wav" id="3_1gs12"]
 
@@ -169,7 +169,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_pl7mw"]
 size = Vector3(0.1, 0.5, 1)
 
-[node name="FlyingEnemy" type="RigidBody3D" node_paths=PackedStringArray("reaction_animation_player", "flying_animation_player", "detection_area", "death_mesh_collider", "bee_root", "defeat_sound") groups=["damageables", "targeteables"]]
+[node name="FlyingEnemy" type="RigidBody3D" unique_id=77263282 node_paths=PackedStringArray("reaction_animation_player", "flying_animation_player", "detection_area", "death_mesh_collider", "bee_root", "defeat_sound") groups=["damageables", "targeteables"]]
 gravity_scale = 0.0
 sleeping = true
 continuous_cd = true
@@ -181,7 +181,7 @@ death_mesh_collider = NodePath("DeathMeshCollider")
 bee_root = NodePath("MeshRoot/bee_root")
 defeat_sound = NodePath("DefeatSound")
 
-[node name="ReactionLabel" type="Label3D" parent="."]
+[node name="ReactionLabel" type="Label3D" parent="." unique_id=2088247338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23854, 0)
 visible = false
 billboard = 2
@@ -189,41 +189,37 @@ text = "!"
 font_size = 192
 outline_size = 32
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel"]
-libraries = {
-"": SubResource("AnimationLibrary_sqtu2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel" unique_id=830526740]
+libraries/ = SubResource("AnimationLibrary_sqtu2")
 
-[node name="PlayerDetectionArea" type="Area3D" parent="."]
+[node name="PlayerDetectionArea" type="Area3D" parent="." unique_id=2027153015]
 collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea" unique_id=462068287]
 shape = SubResource("SphereShape3D_h03f6")
 
-[node name="MeshRoot" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.996195, -0.0871558, 0, 0.0871558, 0.996195, 0, 0, 0, 1, 0, 0, 0)
+[node name="MeshRoot" type="CollisionShape3D" parent="." unique_id=2072672537]
+transform = Transform3D(0.99619496, -0.0871558, 0, 0.0871558, 0.99619496, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_r3occ")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshRoot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshRoot" unique_id=422432216]
 transform = Transform3D(0.998455, -0.0183011, 0.0524617, -0.0183011, 0.783185, 0.621519, -0.0524617, -0.621519, 0.78164, 0.00407339, 0.0482579, -0.211458)
 visible = false
 material_override = SubResource("StandardMaterial3D_mt8a8")
 mesh = SubResource("BoxMesh_qjgky")
 skeleton = NodePath("../..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshRoot"]
-libraries = {
-"": SubResource("AnimationLibrary_wnpkd")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshRoot" unique_id=1731952757]
+libraries/ = SubResource("AnimationLibrary_wnpkd")
+autoplay = &"default"
 
-[node name="bee_root" parent="MeshRoot" instance=ExtResource("2_btoc7")]
+[node name="bee_root" parent="MeshRoot" unique_id=246089386 instance=ExtResource("2_btoc7")]
 transform = Transform3D(0.999781, 0.0209424, 0, -0.0164124, 0.783522, 0.621148, 0.0130083, -0.621012, 0.783694, -0.0294347, -0.348716, 0.106444)
 
-[node name="DeathMeshCollider" type="CollisionShape3D" parent="."]
+[node name="DeathMeshCollider" type="CollisionShape3D" parent="." unique_id=1311852773]
 transform = Transform3D(-1, -5.37025e-08, -6.89839e-08, 0, 0.789084, -0.614285, 8.74228e-08, -0.614285, -0.789084, 0, 0.244858, 0.372593)
 shape = SubResource("BoxShape3D_pl7mw")
 disabled = true
 
-[node name="DefeatSound" type="AudioStreamPlayer3D" parent="."]
+[node name="DefeatSound" type="AudioStreamPlayer3D" parent="." unique_id=1554193050]
 stream = ExtResource("3_1gs12")

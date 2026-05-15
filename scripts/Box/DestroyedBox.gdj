@@ -3,23 +3,21 @@
 
 registeredName = DestroyedBox
 fqName = Box.DestroyedBox
-relativeSourcePath = demo/Box/DestroyedBox.kt
 baseType = Node3D
 supertypes = [
-    godot.api.Node3D,
+	godot.api.Node3D,
 	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
-	godot.common.interop.NativePointer,
-	kotlin.Any
+	godot.common.interop.NativePointer
 ]
 signals = [
-    
+	
 ]
 properties = [
-    
+	
 ]
 functions = [
-    _ready
+	_ready
 ]

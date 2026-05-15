@@ -12,6 +12,7 @@ import godot.api.PackedScene
 import godot.api.ProjectSettings
 import godot.api.Timer
 import godot.core.Vector3
+import godot.extension.connectMethod
 import godot.global.GD
 import shared.Damageable
 
@@ -40,7 +41,7 @@ class Grenade : CharacterBody3D() {
 
     @RegisterFunction
     override fun _ready() {
-        explosionStartTimer.timeout.connect(this, Grenade::explode)
+        explosionStartTimer.timeout.connectMethod(this, Grenade::explode)
     }
 
     @RegisterFunction
@@ -91,6 +92,6 @@ class Grenade : CharacterBody3D() {
         }
 
         hide()
-        explosionSound.finished.connect(this, Grenade::queueFree, ConnectFlags.ONE_SHOT.id.toInt())
+        explosionSound.finished.connectMethod(this, Grenade::queueFree, ConnectFlags.ONE_SHOT)
     }
 }

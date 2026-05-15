@@ -8,6 +8,7 @@ import godot.api.HBoxContainer
 import godot.api.Label
 import godot.api.Timer
 import godot.core.asNodePath
+import godot.extension.connectMethod
 
 private const val HIDDEN_Y_POS = -100
 private const val DISPLAY_Y_POS = 20
@@ -24,13 +25,13 @@ class CoinsContainer : HBoxContainer() {
 
     @RegisterFunction
     override fun _ready() {
-        displayTimer.timeout.connect(this, CoinsContainer::onTimeout)
+        displayTimer.timeout.connectMethod(this, CoinsContainer::onTimeout)
     }
 
     @RegisterFunction
     fun updateCoinsAmount(amount: Int) {
         if (displayTimer.isStopped()) {
-            createTween()?.tweenProperty(this, "position:y".asNodePath(), DISPLAY_Y_POS, 0.5)
+            createTween().tweenProperty(this, "position:y".asNodePath(), DISPLAY_Y_POS, 0.5)
         }
 
         displayTimer.start()
@@ -39,6 +40,6 @@ class CoinsContainer : HBoxContainer() {
 
     @RegisterFunction
     fun onTimeout() {
-        createTween()?.tweenProperty(this, "position:y".asNodePath(), HIDDEN_Y_POS, 0.5)
+        createTween().tweenProperty(this, "position:y".asNodePath(), HIDDEN_Y_POS, 0.5)
     }
 }

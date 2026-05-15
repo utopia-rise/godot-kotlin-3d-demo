@@ -3,21 +3,19 @@
 
 registeredName = DemoPage
 fqName = DemoPage.DemoPage
-relativeSourcePath = demo/DemoPage/DemoPage.kt
 baseType = Node
 supertypes = [
-    godot.api.Node,
+	godot.api.Node,
 	godot.api.Object,
 	godot.core.KtObject,
 	godot.common.interop.NativeWrapper,
-	godot.common.interop.NativePointer,
-	kotlin.Any
+	godot.common.interop.NativePointer
 ]
 signals = [
-    
+	
 ]
 properties = [
-    demo_page_root,
+	demo_page_root,
 	resume_button,
 	exit_button,
 	keyboard_button,
@@ -26,7 +24,7 @@ properties = [
 	grid_container_joypad
 ]
 functions = [
-    _ready,
+	_ready,
 	_input,
 	change_instruction,
 	resume_demo

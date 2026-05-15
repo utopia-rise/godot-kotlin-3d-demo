@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2ew46dlu7u7x"]
+[gd_scene format=3 uid="uid://b2ew46dlu7u7x"]
 
-[ext_resource type="Script" uid="uid://dhkx66nt0pqcq" path="res://scripts/Player/GrenadeLauncher.gdj" id="1_f708q"]
+[ext_resource type="Script" uid="uid://bs2faft67nb7e" path="res://scripts/Player/GrenadeLauncher.gdj" id="1_f708q"]
 [ext_resource type="Material" uid="uid://dus6jtbfyqwj8" path="res://demo/Player/GrenadeVisuals/aim_material.tres" id="2_qr0pg"]
 [ext_resource type="PackedScene" uid="uid://bq562nfq7puh" path="res://demo/Player/Grenade.tscn" id="2_ux7yt"]
 [ext_resource type="Material" uid="uid://b6h7p7jogt6ep" path="res://demo/Player/GrenadeVisuals/trajectory_material.tres" id="3_s7dm5"]
@@ -10,7 +10,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_22ctb"]
 radius = 0.25
 
-[node name="GrenadeLauncher" type="Node3D" node_paths=PackedStringArray("snap_mesh", "raycast", "launch_point", "trail_mesh_instance")]
+[node name="GrenadeLauncher" type="Node3D" unique_id=721445834 node_paths=PackedStringArray("snap_mesh", "raycast", "launch_point", "trail_mesh_instance")]
 script = ExtResource("1_f708q")
 grenade_scene = ExtResource("2_ux7yt")
 max_throw_distance = 16.0
@@ -19,34 +19,34 @@ raycast = NodePath("LaunchPoint/ShapeCast3D")
 launch_point = NodePath("LaunchPoint")
 trail_mesh_instance = NodePath("LaunchPoint/TrailMeshInstance")
 
-[node name="SnapMesh" type="Node3D" parent="."]
+[node name="SnapMesh" type="Node3D" parent="." unique_id=1725129432]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 top_level = true
 
-[node name="AimSprite" type="MeshInstance3D" parent="SnapMesh"]
+[node name="AimSprite" type="MeshInstance3D" parent="SnapMesh" unique_id=1048433919]
 material_override = ExtResource("2_qr0pg")
 mesh = SubResource("PlaneMesh_we0uy")
 skeleton = NodePath("../..")
 
-[node name="AimSprite2" type="MeshInstance3D" parent="SnapMesh"]
+[node name="AimSprite2" type="MeshInstance3D" parent="SnapMesh" unique_id=1518570779]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 material_override = ExtResource("2_qr0pg")
 mesh = SubResource("PlaneMesh_we0uy")
 skeleton = NodePath("../..")
 
-[node name="LaunchPoint" type="Marker3D" parent="."]
+[node name="LaunchPoint" type="Marker3D" parent="." unique_id=1103396105]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.305, 0)
 gizmo_extents = 0.5
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="LaunchPoint"]
+[node name="ShapeCast3D" type="ShapeCast3D" parent="LaunchPoint" unique_id=435194475]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06958, 0)
 shape = SubResource("SphereShape3D_22ctb")
 max_results = 1
 debug_shape_custom_color = Color(0.839216, 0.619608, 0.207843, 1)
 
-[node name="TrailMeshInstance" type="MeshInstance3D" parent="LaunchPoint"]
+[node name="TrailMeshInstance" type="MeshInstance3D" parent="LaunchPoint" unique_id=1861571777]
 unique_name_in_owner = true
 material_override = ExtResource("3_s7dm5")

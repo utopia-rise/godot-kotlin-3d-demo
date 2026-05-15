@@ -10,6 +10,7 @@ import godot.api.Curve
 import godot.api.Node
 import godot.api.Node3D
 import godot.core.Vector3
+import godot.extension.connectMethod
 import godot.global.GD
 import shared.Damageable
 
@@ -47,7 +48,7 @@ class Bullet : Node3D() {
 
     @RegisterFunction
     override fun _ready() {
-        area.bodyEntered.connect(this, Bullet::onBodyEntered)
+        area.bodyEntered.connectMethod(this, Bullet::onBodyEntered)
         lookAt(globalPosition + velocity)
         aliveLimit = distanceLimit / velocity.length()
         projectileSound.pitchScale = GD.randfn(1f, 0.1f)

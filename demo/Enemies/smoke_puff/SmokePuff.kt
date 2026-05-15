@@ -9,10 +9,9 @@ import godot.api.AnimationPlayer
 import godot.api.AudioStreamPlayer3D
 import godot.api.Node
 import godot.api.Node3D
-import godot.core.Callable
 import godot.core.Signal0
-import godot.core.asStringName
 import godot.core.signal0
+import godot.extension.connectLambda
 
 @RegisterClass
 class SmokePuff : Node3D() {
@@ -28,16 +27,12 @@ class SmokePuff : Node3D() {
     @RegisterProperty
     lateinit var player: AnimationPlayer
 
-    private val poofName = "poof".asStringName()
-    private val queueFreeName = "queue_free".asStringName()
-
     @RegisterFunction
     override fun _ready() {
         (smokeSoundsRoot.getChildren().random() as AudioStreamPlayer3D).play()
 
-        player.play(poofName)
-        val callable = Callable(this, queueFreeName).unbind(1)
-        player.animationFinished.connect(callable)
+        player.play("poof")
+        player.animationFinished.connectLambda { queueFree() }
     }
 
     @RegisterFunction

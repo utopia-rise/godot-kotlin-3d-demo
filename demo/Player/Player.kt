@@ -360,10 +360,10 @@ class Player : CharacterBody3D(), Damageable {
     }
 
     @RegisterFunction
-    override fun damage(impactPoint: Vector3, force: Vector3) {
+    override fun damage(impactPoint: Vector3, velocity: Vector3) {
         // Always throws character up
-        force.y = GD.abs(force.y)
-        velocity = force.limitLength(maxThrowbackForce)
+        velocity.y = GD.abs(velocity.y)
+        this@Player.velocity = velocity.limitLength(maxThrowbackForce)
         looseCoins()
     }
 
