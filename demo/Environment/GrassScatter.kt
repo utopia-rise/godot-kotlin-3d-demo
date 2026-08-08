@@ -1,8 +1,7 @@
 package Environment
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
 import godot.api.ArrayMesh
 import godot.api.MeshDataTool
 import godot.api.MeshInstance3D
@@ -13,11 +12,10 @@ import godot.core.Vector3
 import godot.core.times
 import godot.global.GD
 
-@RegisterClass
+@Script
 class GrassScatter : MultiMeshInstance3D() {
 
     @Export
-    @RegisterProperty
     lateinit var targetMeshNode: MeshInstance3D
 
 

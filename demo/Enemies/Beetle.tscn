@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://oxyn25v5khuk"]
 
-[ext_resource type="Script" uid="uid://d0bpwwq3uf2ph" path="res://scripts/Enemies/Beetle.gdj" id="1_8xysi"]
+[ext_resource type="Script" path="res://demo/Enemies/Beetle.kt" id="1_8xysi"]
 [ext_resource type="PackedScene" uid="uid://cxt8d0d4ift6" path="res://demo/Enemies/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 [ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://demo/Enemies/Sounds/robot_defeat.wav" id="3_w5eam"]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3765dge2xh0"]
 
 [ext_resource type="PackedScene" uid="uid://bmg4l7oil4aeu" path="res://demo/Player/GrenadeVisuals/grenade/grenade.glb" id="1_2hras"]
-[ext_resource type="Script" uid="uid://dsrdnoppf8t3j" path="res://scripts/Player/GrenadeVisuals/grenade/GrenadeVisuals.gdj" id="2_us1wn"]
+[ext_resource type="Script" path="res://demo/Player/GrenadeVisuals/grenade/GrenadeVisuals.kt" id="2_us1wn"]
 [ext_resource type="Material" uid="uid://bqiflyx3ow1ul" path="res://demo/Player/GrenadeVisuals/grenade/grenade.material" id="3_wctyh"]
 
 [sub_resource type="Animation" id="Animation_afydg"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxt8d0d4ift6"]
 
-[ext_resource type="Script" uid="uid://ce6c8fr6nx8pj" path="res://scripts/Enemies/beetleBot/BeetleBotSkin.gdj" id="1_mkmdh"]
+[ext_resource type="Script" path="res://demo/Enemies/beetle_bot/BeetleBotSkin.kt" id="1_mkmdh"]
 [ext_resource type="PackedScene" uid="uid://dbqoj8oam1dsg" path="res://demo/Enemies/beetle_bot/beetle_bot_fused.glb" id="1_r7amh"]
 [ext_resource type="Shader" uid="uid://rathff2wwex5" path="res://demo/Player/face_mat.gdshader" id="3_p37mm"]
 [ext_resource type="Material" uid="uid://h2e57pyy6lu4" path="res://demo/Enemies/beetle_bot/materials/beetlebot_lights_mat.tres" id="4_4158y"]

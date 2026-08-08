@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://okmv1cbta83x"]
 
-[ext_resource type="Script" uid="uid://c1cl03qavsieq" path="res://scripts/Enemies/smoke_puff/SmokePuff.gdj" id="1_wbehn"]
+[ext_resource type="Script" path="res://demo/Enemies/smoke_puff/SmokePuff.kt" id="1_wbehn"]
 [ext_resource type="PackedScene" uid="uid://n5v4vlr80bj8" path="res://demo/Enemies/smoke_puff/smoke_ball.glb" id="3_gsgkx"]
 [ext_resource type="Shader" uid="uid://dn2r6llj8rby1" path="res://demo/Enemies/smoke_puff/smoke_ball_middle.gdshader" id="4_7lwog"]
 [ext_resource type="Shader" uid="uid://dx7t7n5gqn06s" path="res://demo/Enemies/smoke_puff/smoke_ball.gdshader" id="4_bh8q1"]

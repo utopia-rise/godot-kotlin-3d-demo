@@ -1,8 +1,8 @@
 package Box
 
 import Player.Coin.Coin
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.AudioStreamPlayer3D
 import godot.api.CollisionShape3D
 import godot.api.PackedScene
@@ -22,18 +22,17 @@ const val COIN_SCENE_PATH = "res://demo/Player/Coin/Coin.tscn"
 const val COINS_COUNT = 5
 const val DESTROYED_BOX_SCENE_PATH = "res://demo/Box/DestroyedBox.tscn"
 
-@RegisterClass
+@Script
 class Box : RigidBody3D(), Damageable {
     private lateinit var destroySound: AudioStreamPlayer3D
     private lateinit var collisionShape: CollisionShape3D
 
-    @RegisterFunction
     override fun _ready() {
         destroySound = getNodeAs("DestroySound")!!
         collisionShape = getNodeAs("CollisionShape3d")!!
     }
 
-    @RegisterFunction
+    @Register
     override fun damage(impactPoint: Vector3, velocity: Vector3) {
         godotCoroutine {
             val destroyedBox = ResourceLoader.awaitLoadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instantiateAs<DestroyedBox>()!!

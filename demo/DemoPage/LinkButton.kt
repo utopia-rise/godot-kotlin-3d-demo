@@ -1,26 +1,23 @@
 package DemoPage
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.OS
 import godot.api.TextureButton
 import godot.extension.connectMethod
 
-@RegisterClass
+@Script
 class LinkButton : TextureButton() {
 
     @Export
-    @RegisterProperty
     var link = ""
 
-    @RegisterFunction
     override fun _ready() {
         pressed.connectMethod(this, LinkButton::onButtonPressed)
     }
 
-    @RegisterFunction
+    @Register
     fun onButtonPressed() {
         OS.shellOpen(link)
     }

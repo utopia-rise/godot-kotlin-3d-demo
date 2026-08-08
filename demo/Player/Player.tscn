@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ciqrpd5675boy"]
 
-[ext_resource type="Script" uid="uid://cm787c6pfh0h2" path="res://scripts/Player/Player.gdj" id="1_beums"]
+[ext_resource type="Script" uid="uid://b1xvr5jsqyl11" path="res://demo/Player/Player.kt" id="1_beums"]
 [ext_resource type="PackedScene" uid="uid://bguebyvtegnv8" path="res://demo/Player/Bullet.tscn" id="2_ck433"]
-[ext_resource type="Script" uid="uid://dvtxd0fj5xhs4" path="res://scripts/Player/CameraController.gdj" id="2_nuakl"]
+[ext_resource type="Script" uid="uid://bh2dvbqb37kyc" path="res://demo/Player/CameraController.kt" id="2_nuakl"]
 [ext_resource type="PackedScene" uid="uid://b2ew46dlu7u7x" path="res://demo/Player/GrenadeLauncher.tscn" id="3_54qc4"]
 [ext_resource type="PackedScene" uid="uid://c54mpt43fs4wc" path="res://demo/Player/Coin/Coin.tscn" id="3_rga6y"]
 [ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://demo/Player/CharacterSkin.tscn" id="4_ign62"]
-[ext_resource type="Script" uid="uid://b2xd7foe7gpif" path="res://scripts/Player/MeleeAttackArea.gdj" id="4_ish5t"]
-[ext_resource type="Script" uid="uid://bop48l68e5w4f" path="res://scripts/Player/CoinsContainer.gdj" id="6_8jksa"]
+[ext_resource type="Script" uid="uid://b6vhcknn7pxtm" path="res://demo/Player/MeleeAttackArea.kt" id="4_ish5t"]
+[ext_resource type="Script" uid="uid://b2of4a04a32uy" path="res://demo/Player/CoinsContainer.kt" id="6_8jksa"]
 [ext_resource type="PackedScene" uid="uid://cqw64w6kb0fyg" path="res://demo/Player/Coin/CoinVisuals/CoinModel.tscn" id="8_6qxxt"]
 [ext_resource type="AudioStream" uid="uid://bx0t7f2nuk2lr" path="res://demo/Player/Sounds/03_Step_grass_03.wav" id="10_wx4h4"]
 [ext_resource type="AudioStream" uid="uid://cbcb2d63weegs" path="res://demo/Player/Sounds/45_Landing_01.wav" id="11_3s4i7"]
@@ -235,7 +235,7 @@ render_target_update_mode = 4
 [node name="Coin" parent="PlayerUI/CoinsContainer/SubViewportContainer/SubViewport" unique_id=892680284 instance=ExtResource("8_6qxxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.812403)
 
-[node name="godot_coin" parent="PlayerUI/CoinsContainer/SubViewportContainer/SubViewport/Coin" index="0"]
+[node name="godot_coin" parent="PlayerUI/CoinsContainer/SubViewportContainer/SubViewport/Coin" index="0" unique_id=530324164]
 transform = Transform3D(0.278847, 0, 0.960336, 0, 1, 0, -0.960336, 0, 0.278847, 0, 0, 0)
 y_amplitude = 0.0
 

@@ -1,4 +1,4 @@
-import godot.annotation.RegisterClass
+import godot.annotation.Script
 import godot.api.Input
 import godot.api.InputEvent
 import godot.api.InputEventKey
@@ -8,7 +8,7 @@ import godot.api.OS
 import godot.api.Window
 import godot.core.Key
 
-@RegisterClass
+@Script
 class FullScreenHandler : Node() {
 
     init {

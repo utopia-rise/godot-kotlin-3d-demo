@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rn45gytkk6tv"]
 
-[ext_resource type="Script" uid="uid://c1phy8e7x08wr" path="res://scripts/Enemies/Beebot.gdj" id="1_bir23"]
+[ext_resource type="Script" path="res://demo/Enemies/Beebot.kt" id="1_bir23"]
 [ext_resource type="PackedScene" uid="uid://4nwp6xgihjc7" path="res://demo/Enemies/BeeBot/bee_root.tscn" id="2_btoc7"]
 [ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://demo/Enemies/Sounds/robot_defeat.wav" id="3_1gs12"]
 

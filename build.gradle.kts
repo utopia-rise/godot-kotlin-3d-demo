@@ -1,8 +1,8 @@
 import godot.gradle.GodotLanguage
-import godot.entrygenerator.settings.RegistrationFileLayoutMode
+import godot.annotation.processor.classgraph.AnnotationProcessingMode
 
 plugins {
-    id("com.utopia-rise.godot-kotlin-jvm") version "0.16.0-4.6.2"
+    id("com.utopia-rise.godot-kotlin-jvm") version "0.17.0-4.7.2"
 }
 
 repositories {
@@ -13,8 +13,7 @@ repositories {
 
 godot {
     languages.set(setOf(GodotLanguage.KOTLIN))
-    registrationFilesDirectory.set(projectDir.resolve("scripts"))
-    registrationFilesLayoutMode.set(RegistrationFileLayoutMode.HIERARCHICAL)
+    annotationProcessingMode.set(AnnotationProcessingMode.Inferred)
     isGodotCoroutinesEnabled.set(true)
 }
 

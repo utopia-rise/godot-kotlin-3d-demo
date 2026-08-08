@@ -2,10 +2,10 @@ package Player
 
 import Player.Coin.Coin
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
-import godot.annotation.RegisterSignal
+import godot.annotation.Script
+import godot.annotation.Register
+import godot.annotation.Visible
+import godot.annotation.Emit
 import godot.api.AnimationPlayer
 import godot.api.AudioStreamPlayer3D
 import godot.api.CharacterBody3D
@@ -32,104 +32,81 @@ enum class WeaponType {
     GRENADE
 }
 
-@RegisterClass
+@Script
 class Player : CharacterBody3D(), Damageable {
-    @RegisterSignal("weapon_name")
+    @Emit("weapon_name")
     val weaponSwitched by signal1<String>()
 
     @Export
-    @RegisterProperty
     lateinit var bulletScene: PackedScene
 
     @Export
-    @RegisterProperty
     lateinit var coinScene: PackedScene
 
     @Export
-    @RegisterProperty
-    var moveSpeed = 8.0
+    var moveSpeed = 8.1
 
     @Export
-    @RegisterProperty
     var bulletSpeed = 10.0
 
     @Export
-    @RegisterProperty
     var attackImpulse = 10.0
 
     @Export
-    @RegisterProperty
     var acceleration = 4.0
 
     @Export
-    @RegisterProperty
     var jumpInitialImpulse = 12.0
 
     @Export
-    @RegisterProperty
     var jumpAdditionalForce = 4.5
 
     @Export
-    @RegisterProperty
     var rotationSpeed = 12.0
 
     @Export
-    @RegisterProperty
     var stoppingSpeed = 1.0
 
     @Export
-    @RegisterProperty
     var maxThrowbackForce = 15.0
 
     @Export
-    @RegisterProperty
     var shootCooldown = 0.5
 
     @Export
-    @RegisterProperty
     var grenadeCooldown = 0.5
 
     @Export
-    @RegisterProperty
     lateinit var rotationRoot: Node3D
 
     @Export
-    @RegisterProperty
     lateinit var cameraController: CameraController
 
     @Export
-    @RegisterProperty
     lateinit var attackAnimationPlayer: AnimationPlayer
 
     @Export
-    @RegisterProperty
     lateinit var groundShapecast: ShapeCast3D
 
     @Export
-    @RegisterProperty
     lateinit var grenadeAimController: GrenadeLauncher
 
     @Export
-    @RegisterProperty
     lateinit var characterSkin: CharacterSkin
 
     @Export
-    @RegisterProperty
     lateinit var uiAimRecticle: ColorRect
 
     @Export
-    @RegisterProperty
     lateinit var uiCoinsContainer: CoinsContainer
 
     @Export
-    @RegisterProperty
     lateinit var stepSound: AudioStreamPlayer3D
 
     @Export
-    @RegisterProperty
     lateinit var landingSound: AudioStreamPlayer3D
 
-    @RegisterProperty
+    @Visible
     var groundHeight = 0.0
 
     private var equipedWeapon = WeaponType.DEFAULT
@@ -143,7 +120,6 @@ class Player : CharacterBody3D(), Damageable {
     private var shootCooldownTick = shootCooldown
     private var grenadeCooldownTick = grenadeCooldown
 
-    @RegisterFunction
     override fun _ready() {
         startPosition = globalPosition
         Input.setMouseMode(Input.MouseMode.CAPTURED)
@@ -158,7 +134,6 @@ class Player : CharacterBody3D(), Damageable {
         }
     }
 
-    @RegisterFunction
     override fun _physicsProcess(delta: Double) {
         // Calculate ground height for camera controller
         if (groundShapecast.getCollisionCount() > 0) {
@@ -309,18 +284,18 @@ class Player : CharacterBody3D(), Damageable {
         bullet.globalPosition = origin
     }
 
-    @RegisterFunction
+    @Register
     fun resetPosition() = transformMutate {
         origin = startPosition
     }
 
-    @RegisterFunction
+    @Register
     fun collectCoin() {
         coins += 1
         uiCoinsContainer.updateCoinsAmount(coins)
     }
 
-    @RegisterFunction
+    @Register
     fun looseCoins() {
         val lostCoins = GD.min(coins, 5)
         coins -= lostCoins
@@ -353,13 +328,13 @@ class Player : CharacterBody3D(), Damageable {
         return input
     }
 
-    @RegisterFunction
+    @Register
     fun playFootStepSound() {
         stepSound.pitchScale = GD.randfn(1.2f, 0.2f)
         stepSound.play()
     }
 
-    @RegisterFunction
+    @Register
     override fun damage(impactPoint: Vector3, velocity: Vector3) {
         // Always throws character up
         velocity.y = GD.abs(velocity.y)

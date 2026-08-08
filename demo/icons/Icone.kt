@@ -1,11 +1,11 @@
 package icons
 
-import godot.annotation.RegisterClass
+import godot.annotation.Script
 import godot.api.TextureRect
 import godot.core.Color
 import godot.core.asNodePath
 
-@RegisterClass
+@Script
 class Icone : TextureRect() {
 
     private val disabledAlpha = 0.2

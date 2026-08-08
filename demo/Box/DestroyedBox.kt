@@ -1,7 +1,6 @@
 package Box
 
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
+import godot.annotation.Script
 import godot.api.Node3D
 import godot.api.RigidBody3D
 import godot.core.Vector3
@@ -10,11 +9,10 @@ import kotlin.random.Random
 const val FLYING_PIECES = 3
 const val THROW_STRENGTH = 500.0f
 
-@RegisterClass
+@Script
 class DestroyedBox : Node3D() {
     private val _piecesIdx = mutableListOf(0, 1, 2, 3, 4, 5)
 
-    @RegisterFunction
     override fun _ready() {
         _piecesIdx.shuffle()
 

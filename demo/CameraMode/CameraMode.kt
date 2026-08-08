@@ -1,9 +1,7 @@
 package CameraMode
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
 import godot.api.Camera3D
 import godot.api.Input
 import godot.api.InputEvent
@@ -19,29 +17,25 @@ import kotlin.math.PI
 
 private const val CAMERA_MODE_TOGGLE_GROUP = "camera_mode_toggle"
 
-@RegisterClass
+@Script
 class CameraMode : Node3D() {
 
     @Export
-    @RegisterProperty
     var cameraSpeed: Int = 10
 
     @Export
-    @RegisterProperty
     var mouseSensitivity: Float = 0.01f
 
     private var camera: Camera3D? = null
     private var cachedCamera: Camera3D? = null
     private var isEnabled: Boolean = false
 
-    @RegisterFunction
     override fun _ready() {
         isEnabled = OS.isDebugBuild()
         setProcess(isEnabled)
         setProcessInput(isEnabled)
     }
 
-    @RegisterFunction
     override fun _input(event: InputEvent) {
         if (event is InputEventKey) {
             if (event.isPressed() && !event.isEcho()) {
@@ -52,7 +46,6 @@ class CameraMode : Node3D() {
         }
     }
 
-    @RegisterFunction
     override fun _process(delta: Double) {
         if (!visible) return
 

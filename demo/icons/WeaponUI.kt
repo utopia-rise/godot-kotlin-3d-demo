@@ -1,32 +1,28 @@
 package icons
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.PanelContainer
 
-@RegisterClass
+@Script
 class WeaponUI : PanelContainer() {
 
     @Export
-    @RegisterProperty
     lateinit var flashNode: Icone
 
     @Export
-    @RegisterProperty
     lateinit var grenadeNode: Icone
 
     val nodes = mutableMapOf<String, Icone>()
     var selectedNode: String = ""
 
-    @RegisterFunction
     override fun _ready() {
         nodes["DEFAULT"] = flashNode
         nodes["GRENADE"] = grenadeNode
     }
 
-    @RegisterFunction
+    @Register
     fun switchTo(nodeName: String) {
         // Return if same node
         if (nodeName == selectedNode) return

@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://demo/Environment/water/textures/caustic_texture.png" id="9_8eqnd"]
 [ext_resource type="PackedScene" uid="uid://dx8qkjcbt8emp" path="res://demo/Environment/grass/GrassChunk.tscn" id="10_8c06q"]
 [ext_resource type="PackedScene" uid="uid://cn8o7sv1osssk" path="res://demo/Environment/bushes/bush.tscn" id="11_f8df7"]
-[ext_resource type="Script" uid="uid://cwi42tao7sp7s" path="res://scripts/Level/DeathPlane.gdj" id="12_vo5hg"]
+[ext_resource type="Script" path="res://demo/Level/DeathPlane.kt" id="12_vo5hg"]
 [ext_resource type="PackedScene" uid="uid://cmwyiep10m4u4" path="res://demo/Box/Box.tscn" id="12_xvr0j"]
 [ext_resource type="PackedScene" uid="uid://rn45gytkk6tv" path="res://demo/Enemies/BeeBot.tscn" id="13_012dc"]
 [ext_resource type="PackedScene" uid="uid://oxyn25v5khuk" path="res://demo/Enemies/Beetle.tscn" id="14_tmmem"]

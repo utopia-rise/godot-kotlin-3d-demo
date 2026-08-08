@@ -1,9 +1,9 @@
 package Player
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
+import godot.annotation.Visible
 import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
 import godot.api.Curve
@@ -14,39 +14,33 @@ import godot.extension.connectMethod
 import godot.global.GD
 import shared.Damageable
 
-@RegisterClass
+@Script
 class Bullet : Node3D() {
 
     @Export
-    @RegisterProperty
     lateinit var scaleDecay: Curve
 
     @Export
-    @RegisterProperty
     var distanceLimit: Float = 5f
 
-    @RegisterProperty
+    @Visible
     var shooter: Node? = null
 
-    @RegisterProperty
+    @Visible
     var velocity: Vector3 = Vector3.ZERO
 
     @Export
-    @RegisterProperty
     lateinit var area: Area3D
 
     @Export
-    @RegisterProperty
     lateinit var bulletVisuals: Node3D
 
     @Export
-    @RegisterProperty
     lateinit var projectileSound: AudioStreamPlayer3D
 
     private var timeAlive = 0.0
     private var aliveLimit = 0.0
 
-    @RegisterFunction
     override fun _ready() {
         area.bodyEntered.connectMethod(this, Bullet::onBodyEntered)
         lookAt(globalPosition + velocity)
@@ -55,7 +49,6 @@ class Bullet : Node3D() {
         projectileSound.play()
     }
 
-    @RegisterFunction
     override fun _process(delta: Double) {
         globalPosition += velocity * delta
         timeAlive += delta
@@ -67,7 +60,7 @@ class Bullet : Node3D() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun onBodyEntered(body: Node3D) {
         if (body == shooter) return
 

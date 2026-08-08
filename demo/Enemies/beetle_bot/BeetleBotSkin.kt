@@ -1,9 +1,8 @@
 package Enemies.beetleBot
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.Animation
 import godot.api.AnimationNodeStateMachinePlayback
 import godot.api.AnimationPlayer
@@ -14,23 +13,19 @@ import godot.core.PackedStringArray
 import godot.core.asStringName
 import godot.global.GD
 
-@RegisterClass
+@Script
 class BeetleBotSkin : Node3D() {
 
     @Export
-    @RegisterProperty
     var forceLoop = PackedStringArray()
 
     @Export
-    @RegisterProperty
     lateinit var animationTree: AnimationTree
 
     @Export
-    @RegisterProperty
     lateinit var player: AnimationPlayer
 
     @Export
-    @RegisterProperty
     lateinit var secondaryActionTimer: Timer
 
     private lateinit var mainStateMachine: AnimationNodeStateMachinePlayback
@@ -43,7 +38,6 @@ class BeetleBotSkin : Node3D() {
     private val attackName = "Attack".asStringName()
     private val powerOffName = "PowerOff".asStringName()
 
-    @RegisterFunction
     override fun _ready() {
         animationTree.active = true
         mainStateMachine = animationTree.get(playbackName) as AnimationNodeStateMachinePlayback
@@ -54,7 +48,7 @@ class BeetleBotSkin : Node3D() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun onSecondaryActionTimerTimeout() {
         if (mainStateMachine.getCurrentNode() == idleName) {
             shake()
@@ -62,27 +56,27 @@ class BeetleBotSkin : Node3D() {
         secondaryActionTimer.start(GD.randfRange(3f, 8f).toDouble())
     }
 
-    @RegisterFunction
+    @Register
     fun idle() {
         mainStateMachine.travel(idleName)
     }
 
-    @RegisterFunction
+    @Register
     fun walk() {
         mainStateMachine.travel(walkName)
     }
 
-    @RegisterFunction
+    @Register
     fun shake() {
         mainStateMachine.travel(shakeName)
     }
 
-    @RegisterFunction
+    @Register
     fun attack() {
         mainStateMachine.travel(attackName)
     }
 
-    @RegisterFunction
+    @Register
     fun powerOff() {
         mainStateMachine.travel(powerOffName)
         secondaryActionTimer.stop()

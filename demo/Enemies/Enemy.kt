@@ -2,8 +2,6 @@ package Enemies
 
 import Enemies.smoke_puff.SmokePuff
 import Player.Coin.Coin
-import godot.annotation.Export
-import godot.annotation.RegisterProperty
 import godot.api.PackedScene
 import godot.api.ResourceLoader
 import godot.api.RigidBody3D
@@ -15,8 +13,6 @@ import godot.extension.api.loadAs
 import shared.Damageable
 
 abstract class Enemy : RigidBody3D(), Damageable {
-    @Export
-    @RegisterProperty
     abstract var coinsCount: Int
 
     private val puffScene = ResourceLoader.loadAs<PackedScene>("res://demo/Enemies/smoke_puff/smoke_puff.tscn")!!

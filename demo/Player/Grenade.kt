@@ -1,9 +1,8 @@
 package Player
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
 import godot.api.CharacterBody3D
@@ -16,22 +15,18 @@ import godot.extension.connectMethod
 import godot.global.GD
 import shared.Damageable
 
-@RegisterClass
+@Script
 class Grenade : CharacterBody3D() {
     @Export
-    @RegisterProperty
     lateinit var explosionScene: PackedScene
 
     @Export
-    @RegisterProperty
     lateinit var explosionArea3D: Area3D
 
     @Export
-    @RegisterProperty
     lateinit var explosionSound: AudioStreamPlayer3D
 
     @Export
-    @RegisterProperty
     lateinit var explosionStartTimer: Timer
 
 
@@ -39,12 +34,10 @@ class Grenade : CharacterBody3D() {
         ProjectSettings.getSetting("physics/3d/default_gravity") as Double
     }
 
-    @RegisterFunction
     override fun _ready() {
         explosionStartTimer.timeout.connectMethod(this, Grenade::explode)
     }
 
-    @RegisterFunction
     override fun _physicsProcess(delta: Double) {
         velocity += Vector3.DOWN * gravity * delta
         val collision = moveAndCollide(velocity * delta)
@@ -58,12 +51,12 @@ class Grenade : CharacterBody3D() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun `throw`(throwVelocity: Vector3) {
         velocity = throwVelocity
     }
 
-    @RegisterFunction
+    @Register
     fun explode() {
         setPhysicsProcess(false)
 

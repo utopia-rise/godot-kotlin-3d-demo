@@ -16,14 +16,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="TPS Demo"
 run/main_scene="res://demo/Main.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 
 [autoload]
 
 CameraMode="*res://demo/CameraMode/CameraMode.tscn"
-FullScreenHandle="*res://scripts/FullScreenHandler.gdj"
+FullScreenHandle="*res://demo/FullScreenHandler.kt"
 
 [display]
 

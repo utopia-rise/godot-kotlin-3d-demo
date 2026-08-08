@@ -3,9 +3,8 @@ package Enemies
 import Enemies.beetleBot.BeetleBotSkin
 import Player.Player
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.AnimationPlayer
 import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
@@ -17,43 +16,34 @@ import godot.core.asStringName
 import godot.extension.SignalConnector
 import godot.extension.connectMethod
 
-@RegisterClass
+@Script
 class Beetle : Enemy() {
 
     @Export
-    @RegisterProperty
     override var coinsCount = 5
 
     @Export
-    @RegisterProperty
     var shootTimer = 1.5
 
     @Export
-    @RegisterProperty
     var bulletSpeed = 6.0
 
     @Export
-    @RegisterProperty
     lateinit var reactionAnimationPlayer: AnimationPlayer
 
     @Export
-    @RegisterProperty
     lateinit var detectionArea: Area3D
 
     @Export
-    @RegisterProperty
     lateinit var beetleSkin: BeetleBotSkin
 
     @Export
-    @RegisterProperty
     lateinit var navigationAgent: NavigationAgent3D
 
     @Export
-    @RegisterProperty
     lateinit var deathCollisionShape: CollisionShape3D
 
     @Export
-    @RegisterProperty
     lateinit var defeatSound: AudioStreamPlayer3D
 
     private val foundPlayerName = "found_player".asStringName()
@@ -65,14 +55,12 @@ class Beetle : Enemy() {
     var target: Node3D? = null
     var alive = true
 
-    @RegisterFunction
     override fun _ready() {
         bodyEnteredConnection = detectionArea.bodyEntered.connectMethod(this, Beetle::onBodyEntered)
         bodyExitedConnection = detectionArea.bodyExited.connectMethod(this, Beetle::onBodyExited)
         beetleSkin.idle()
     }
 
-    @RegisterFunction
     override fun _physicsProcess(delta: Double) {
         if (!alive) return
         target?.let {
@@ -109,7 +97,7 @@ class Beetle : Enemy() {
         }
     }
 
-    @RegisterFunction
+    @Register
     override fun damage(impactPoint: Vector3, velocity: Vector3) {
         lockRotation = false
         applyImpulse(velocity.limitLength(3.0), impactPoint)
@@ -135,7 +123,7 @@ class Beetle : Enemy() {
         death()
     }
 
-    @RegisterFunction
+    @Register
     fun onBodyEntered(body: Node3D) {
         if (body is Player) {
             target = body
@@ -143,7 +131,7 @@ class Beetle : Enemy() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun onBodyExited(body: Node3D) {
         if (body is Player) {
             target = null

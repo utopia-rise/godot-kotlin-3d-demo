@@ -1,9 +1,8 @@
 package DemoPage
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.Button
 import godot.api.Control
 import godot.api.GridContainer
@@ -17,7 +16,7 @@ import godot.core.methodCallable0
 import godot.extension.connectLambda
 import godot.extension.connectMethod
 
-@RegisterClass
+@Script
 class DemoPage : Node() {
     enum class InstructionType {
         KEYBOARD,
@@ -25,36 +24,28 @@ class DemoPage : Node() {
     }
 
     @Export
-    @RegisterProperty
     lateinit var demoPageRoot: Control
 
     @Export
-    @RegisterProperty
     lateinit var resumeButton: Button
 
     @Export
-    @RegisterProperty
     lateinit var exitButton: Button
 
     @Export
-    @RegisterProperty
     lateinit var keyboardButton: Button
 
     @Export
-    @RegisterProperty
     lateinit var joypadButton: Button
 
     @Export
-    @RegisterProperty
     lateinit var gridContainerKeyboard: GridContainer
 
     @Export
-    @RegisterProperty
     lateinit var gridContainerJoypad: GridContainer
 
     private var demoMouseMode: Input.MouseMode = Input.MouseMode.VISIBLE
 
-    @RegisterFunction
     override fun _ready() {
         val tree = getTree() ?: return
         tree.paused = true
@@ -75,7 +66,6 @@ class DemoPage : Node() {
         )
     }
 
-    @RegisterFunction
     override fun _input(event: InputEvent) {
         if (event.isActionPressed("pause".asStringName()) && !event.isEcho()) {
             if (getTree()?.paused == true) {
@@ -86,7 +76,7 @@ class DemoPage : Node() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun changeInstruction(type: Int) {
         when (type) {
             InstructionType.KEYBOARD.ordinal -> {
@@ -116,7 +106,7 @@ class DemoPage : Node() {
         Input.setMouseMode(Input.MouseMode.VISIBLE)
     }
 
-    @RegisterFunction
+    @Register
     fun resumeDemo() {
         getTree()?.let { it.paused = false }
         createTween().apply {

@@ -4,9 +4,8 @@ import Enemies.BeeBot.BeeRoot
 import Player.Bullet
 import Player.Player
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.AnimationPlayer
 import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
@@ -21,43 +20,34 @@ import godot.extension.api.loadAs
 import godot.extension.SignalConnector
 import godot.extension.connectMethod
 
-@RegisterClass
+@Script
 class Beebot : Enemy() {
 
     @Export
-    @RegisterProperty
     override var coinsCount = 7
 
     @Export
-    @RegisterProperty
     var shootTimer = 1.5
 
     @Export
-    @RegisterProperty
     var bulletSpeed = 6.0
 
     @Export
-    @RegisterProperty
     lateinit var reactionAnimationPlayer: AnimationPlayer
 
     @Export
-    @RegisterProperty
     lateinit var flyingAnimationPlayer: AnimationPlayer
 
     @Export
-    @RegisterProperty
     lateinit var detectionArea: Area3D
 
     @Export
-    @RegisterProperty
     lateinit var deathMeshCollider: CollisionShape3D
 
     @Export
-    @RegisterProperty
     lateinit var beeRoot: BeeRoot
 
     @Export
-    @RegisterProperty
     lateinit var defeatSound: AudioStreamPlayer3D
 
     private val bulletScene = ResourceLoader.loadAs<PackedScene>("res://demo/Player/Bullet.tscn")!!
@@ -72,14 +62,12 @@ class Beebot : Enemy() {
     var target: Node3D? = null
     var alive = true
 
-    @RegisterFunction
     override fun _ready() {
         bodyEnteredConnection = detectionArea.bodyEntered.connectMethod(this, Beebot::onBodyEntered)
         bodyExitedConnection = detectionArea.bodyExited.connectMethod(this, Beebot::onBodyExited)
         beeRoot.playIdle()
     }
 
-    @RegisterFunction
     override fun _physicsProcess(delta: Double) {
         if (!alive) return
         target?.let {
@@ -106,7 +94,7 @@ class Beebot : Enemy() {
         }
     }
 
-    @RegisterFunction
+    @Register
     override fun damage(impactPoint: Vector3, velocity: Vector3) {
         applyImpulse(velocity.limitLength(3.0), impactPoint)
 
@@ -130,7 +118,7 @@ class Beebot : Enemy() {
         death()
     }
 
-    @RegisterFunction
+    @Register
     fun onBodyEntered(body: Node3D) {
         if (body is Player) {
             shootCount = 0.0
@@ -139,7 +127,7 @@ class Beebot : Enemy() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun onBodyExited(body: Node3D) {
         if (body is Player) {
             target = null

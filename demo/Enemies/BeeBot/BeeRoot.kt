@@ -1,24 +1,21 @@
 package Enemies.BeeBot
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
 import godot.api.AnimationNodeStateMachinePlayback
 import godot.api.AnimationTree
 import godot.api.Node
 import godot.api.Node3D
 import godot.core.asStringName
 
-@RegisterClass
+@Script
 class BeeRoot : Node3D() {
 
     @Export
-    @RegisterProperty
     lateinit var stateMachine: AnimationTree
 
     @Export
-    @RegisterProperty
     lateinit var beeBot: Node
 
     private val idleName = "idle".asStringName()
@@ -32,29 +29,27 @@ class BeeRoot : Node3D() {
 
     private lateinit var animationPlayback: AnimationNodeStateMachinePlayback
 
-    @RegisterFunction
     override fun _ready() {
         animationPlayback = stateMachine.get(playbackName) as AnimationNodeStateMachinePlayback
         stateMachine.active = true
         playIdle()
     }
 
-    @RegisterFunction
+    @Register
     fun playIdle() {
         animationPlayback.travel(idleName)
     }
 
-    @RegisterFunction
+    @Register
     fun playSpitAttack() {
         animationPlayback.travel(attackName)
     }
 
-    @RegisterFunction
+    @Register
     fun playPoweroff() {
         animationPlayback.travel(powerOffName)
     }
 
-    @RegisterFunction
     override fun _exitTree() {
         beeBot.set(surfaceMaterialName1, null)
         beeBot.set(surfaceMaterialName2, null)

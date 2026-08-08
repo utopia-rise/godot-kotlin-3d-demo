@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://q3osrwkgcbi0"]
 
-[ext_resource type="Script" uid="uid://3fpwu2h2hv8y" path="res://scripts/CameraMode/CameraMode.gdj" id="1_nhocp"]
+[ext_resource type="Script" path="res://demo/CameraMode/CameraMode.kt" id="1_nhocp"]
 
 [node name="CameraMode" type="Node3D" unique_id=1000434255]
 process_mode = 3

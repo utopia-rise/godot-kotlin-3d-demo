@@ -1,8 +1,8 @@
 package Player.Coin
 
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
+import godot.annotation.Visible
 import godot.api.Area3D
 import godot.api.AudioStreamPlayer3D
 import godot.api.Node3D
@@ -25,25 +25,24 @@ const val MAX_LAUNCH_HEIGHT = 3.0
 const val SPAWN_TWEEN_DURATION = 1.0
 const val FOLLOW_TWEEN_DURATION = 0.5
 
-@RegisterClass
+@Script
 class Coin : RigidBody3D() {
 
-    @RegisterProperty
+    @Visible
     lateinit var collectAudio: AudioStreamPlayer3D
 
-    @RegisterProperty
+    @Visible
     lateinit var playerDetectionArea: Area3D
 
     private var initialTweenPosition = Vector3.ZERO
     private var target: Node3D? = null
 
-    @RegisterFunction
     override fun _ready() {
         collectAudio = getNodeAs("CollectAudio")!!
         playerDetectionArea = getNodeAs("PlayerDetectionArea")!!
     }
 
-    @RegisterFunction
+    @Register
     fun spawn() {
         val randHeight = MIN_LAUNCH_HEIGHT + (Random.nextDouble() * (MAX_LAUNCH_HEIGHT - MIN_LAUNCH_HEIGHT))
         val randDir = Vector3.FORWARD.rotated(Vector3.UP, Random.nextDouble() * (2 * Math.PI))
@@ -70,12 +69,12 @@ class Coin : RigidBody3D() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun follow(offset: Float) {
         globalPosition = GD.lerp(initialTweenPosition, target!!.globalPosition, offset)
     }
 
-    @RegisterFunction
+    @Register
     fun collect() {
         collectAudio.pitchScale = GD.randfn(1.0f, 0.1f)
         collectAudio.play()
@@ -84,14 +83,14 @@ class Coin : RigidBody3D() {
         collectAudio.finished.connectMethod(this, Coin::queueFree)
     }
 
-    @RegisterFunction
+    @Register
     fun onBodyEntered(body: Node3D) {
         if (body is PhysicsBody3D && body.hasMethod("collect_coin".asStringName())) {
             setTarget(body)
         }
     }
 
-    @RegisterFunction
+    @Register
     fun onCoinDelayTimeout() {
         setCollisionLayerValue(3, true)
     }

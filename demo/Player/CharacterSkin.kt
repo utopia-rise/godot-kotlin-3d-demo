@@ -1,10 +1,9 @@
 package Player
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
-import godot.annotation.RegisterSignal
+import godot.annotation.Script
+import godot.annotation.Register
+import godot.annotation.Emit
 import godot.api.AnimationNodeOneShot
 import godot.api.AnimationNodeStateMachinePlayback
 import godot.api.AnimationPlayer
@@ -14,18 +13,16 @@ import godot.core.Signal0
 import godot.core.asStringName
 import godot.core.signal0
 
-@RegisterClass
+@Script
 class CharacterSkin : Node3D() {
 
-    @RegisterSignal
+    @Emit
     val footStep: Signal0 by signal0()
 
     @Export
-    @RegisterProperty
     lateinit var mainAnimationPlayer: AnimationPlayer
 
     @Export
-    @RegisterProperty
     lateinit var animationTree: AnimationTree
 
     private val stateMachine: AnimationNodeStateMachinePlayback by lazy {
@@ -39,13 +36,12 @@ class CharacterSkin : Node3D() {
     private var jumpAnimation = "jump".asStringName()
     private var fallAnimation = "fall".asStringName()
 
-    @RegisterFunction
     override fun _ready() {
         animationTree.active = true
         mainAnimationPlayer.playbackDefaultBlendTime = 0.1
     }
 
-    @RegisterFunction
+    @Register
     fun setMoving(isMoving: Boolean) {
         if (isMoving) {
             stateMachine.travel(moveAnimation)
@@ -54,22 +50,22 @@ class CharacterSkin : Node3D() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun setMovingSpeed(speed: Double) {
         animationTree.set(movingBlendPath, speed)
     }
 
-    @RegisterFunction
+    @Register
     fun jump() {
         stateMachine.travel(jumpAnimation)
     }
 
-    @RegisterFunction
+    @Register
     fun fall() {
         stateMachine.travel(fallAnimation)
     }
 
-    @RegisterFunction
+    @Register
     fun punch() {
         animationTree.set(punchOneShotPath, AnimationNodeOneShot.OneShotRequest.FIRE.value)
     }

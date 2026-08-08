@@ -2,9 +2,9 @@ package Player
 
 import godot.annotation.DoubleRange
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
+import godot.annotation.Visible
 import godot.api.Camera3D
 import godot.api.Input
 import godot.api.InputEvent
@@ -18,52 +18,42 @@ import godot.core.Vector3
 import godot.core.asStringName
 import godot.global.GD
 
-@RegisterClass
+@Script
 class CameraController : Node3D() {
     enum class CameraPivot {
         OVER_SHOULDER, THIRD_PERSON
     }
 
     @Export
-    @RegisterProperty
     var invertMouseY = false
 
     @Export
     @DoubleRange(0.0, 1.0)
-    @RegisterProperty
     var mouseSensitivity = 0.25
 
     @Export
     @DoubleRange(0.0, 8.0)
-    @RegisterProperty
     var joystickSensitivity = 2.0
 
     @Export
-    @RegisterProperty
     var tiltUpperLimit = GD.degToRad(-60.0)
 
     @Export
-    @RegisterProperty
     var tiltLowerLimit = GD.degToRad(60.0)
 
     @Export
-    @RegisterProperty
     lateinit var camera: Camera3D
 
     @Export
-    @RegisterProperty
     lateinit var overShoulderPivot: Node3D
 
     @Export
-    @RegisterProperty
     lateinit var cameraSpringArm: SpringArm3D
 
     @Export
-    @RegisterProperty
     lateinit var thirdPersonPivot: Node3D
 
     @Export
-    @RegisterProperty
     lateinit var cameraRayCast: RayCast3D
 
     private var aimTarget: Vector3 = Vector3()
@@ -81,7 +71,6 @@ class CameraController : Node3D() {
     private val cameraUpAction = "camera_up".asStringName()
     private val cameraDownAction = "camera_down".asStringName()
 
-    @RegisterFunction
     override fun _unhandledInput(event: InputEvent) {
         if (event is InputEventMouseMotion && Input.getMouseMode() == Input.MouseMode.CAPTURED) {
             rotationInput = -event.relative.x * mouseSensitivity
@@ -89,7 +78,6 @@ class CameraController : Node3D() {
         }
     }
 
-    @RegisterFunction
     override fun _physicsProcess(delta: Double) {
         if (!::anchor.isInitialized) return
         if (!::pivot.isInitialized) return
@@ -132,7 +120,7 @@ class CameraController : Node3D() {
         tiltInput = 0.0
     }
 
-    @RegisterFunction
+    @Register
     fun setup(anchor: Player) {
         this.anchor = anchor
         globalTransform = anchor.globalTransform
@@ -143,7 +131,7 @@ class CameraController : Node3D() {
         cameraRayCast.addExceptionRid(anchor.getRid())
     }
 
-    @RegisterFunction
+    @Register
     fun setPivot(pivotOrdinal: Int) {
         val pivotType = CameraPivot.entries[pivotOrdinal]
         if (pivotType == currentPivotType) return
@@ -159,12 +147,12 @@ class CameraController : Node3D() {
         currentPivotType = pivotType
     }
 
-    @RegisterFunction
+    @Register
     fun getAimTarget(): Vector3 {
         return aimTarget
     }
 
-    @RegisterFunction
+    @Register
     fun getAimCollider(): Node? {
         return aimCollider?.takeIf { GD.isInstanceValid(it) }
     }

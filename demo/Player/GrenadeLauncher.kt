@@ -1,9 +1,9 @@
 package Player
 
 import godot.annotation.Export
-import godot.annotation.RegisterClass
-import godot.annotation.RegisterFunction
-import godot.annotation.RegisterProperty
+import godot.annotation.Script
+import godot.annotation.Register
+import godot.annotation.Visible
 import godot.api.CharacterBody3D
 import godot.api.Engine
 import godot.api.Marker3D
@@ -20,57 +20,47 @@ import godot.core.Vector3
 import godot.core.asStringName
 import godot.global.GD
 
-@RegisterClass
+@Script
 class GrenadeLauncher : Node3D() {
     @Export
-    @RegisterProperty
     lateinit var grenadeScene: PackedScene
 
     @Export
-    @RegisterProperty
     var minThrowDistance: Double = 7.0
 
     @Export
-    @RegisterProperty
     var maxThrowDistance: Double = 7.0
 
     @Export
-    @RegisterProperty
     var gravity: Double = ProjectSettings.getSetting("physics/3d/default_gravity") as Double
 
     @Export
-    @RegisterProperty
     lateinit var snapMesh: Node3D
 
     @Export
-    @RegisterProperty
     lateinit var raycast: ShapeCast3D
 
     @Export
-    @RegisterProperty
     lateinit var launchPoint: Marker3D
 
     @Export
-    @RegisterProperty
     lateinit var trailMeshInstance: MeshInstance3D
 
-    @RegisterProperty
+    @Visible
     var fromLookPosition = Vector3.ZERO
 
-    @RegisterProperty
+    @Visible
     var throwDirection = Vector3.ZERO
 
     private var throwVelocity = Vector3.ZERO
     private var timeToLand = 0.0
 
-    @RegisterFunction
     override fun _ready() {
         if (Engine.isEditorHint()) {
             setPhysicsProcess(false)
         }
     }
 
-    @RegisterFunction
     override fun _physicsProcess(delta: Double) {
         if (visible) {
             updateThrowVelocity()
@@ -78,7 +68,7 @@ class GrenadeLauncher : Node3D() {
         }
     }
 
-    @RegisterFunction
+    @Register
     fun throwGrenade(): Boolean {
         if (!visible) return false
 
