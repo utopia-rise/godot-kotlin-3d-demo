@@ -53,7 +53,7 @@ class Player : CharacterBody3D(), Damageable {
     var attackImpulse = 10.0
 
     @Export
-    var acceleration = 4.0
+    var acceleration = 5.0
 
     @Export
     var jumpInitialImpulse = 12.0
@@ -182,14 +182,16 @@ class Player : CharacterBody3D(), Damageable {
 
         orientCharacterToDirection(lastStrongDirection, delta)
 
-        // We separate out the y velocity to not interpolate on the gravity
-        val yVelocity = velocity.y
-        velocityMutate { y = 0.0 }
-        velocity = velocity.lerp(moveDirection * moveSpeed, acceleration * delta)
-        if (moveDirection.length() == 0.0 && velocity.length() < stoppingSpeed) {
-            velocity = Vector3.ZERO
+        if (isOnFloor()) {
+            // We separate out the y velocity to not interpolate on the gravity
+            val yVelocity = velocity.y
+            velocityMutate { y = 0.0 }
+            velocity = velocity.lerp(moveDirection * moveSpeed, acceleration * delta)
+            if (moveDirection.length() == 0.0 && velocity.length() < stoppingSpeed) {
+                velocity = Vector3.ZERO
+            }
+            velocityMutate { y = yVelocity }
         }
-        velocityMutate { y = yVelocity }
 
         // Set aiming camera and UI
         if (isAiming) {

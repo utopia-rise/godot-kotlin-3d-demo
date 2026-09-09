@@ -6,10 +6,9 @@ import godot.api.PackedScene
 import godot.api.ResourceLoader
 import godot.api.RigidBody3D
 import godot.coroutines.await
-import godot.coroutines.awaitMainThread
-import godot.coroutines.godotCoroutine
-import godot.extension.api.instantiateAs
-import godot.extension.api.loadAs
+import godot.coroutines.launch
+import godot.extension.instantiateAs
+import godot.extension.loadAs
 import shared.Damageable
 
 abstract class Enemy : RigidBody3D(), Damageable {
@@ -20,26 +19,21 @@ abstract class Enemy : RigidBody3D(), Damageable {
 
     fun death() {
         val timer = getTree()!!.createTimer(2.0)
-        godotCoroutine {
+        launch {
             timer.timeout.await()
 
             val puff = puffScene.instantiateAs<SmokePuff>()!!
-            awaitMainThread {
-                getParent()?.addChild(puff)
-                puff.globalPosition = globalPosition
-            }
+            getParent()?.addChild(puff)
+            puff.globalPosition = globalPosition
 
             val coins = List(coinsCount) {
                 coinScene.instantiateAs<Coin>()!!
             }
 
-
-            awaitMainThread {
-                for (coin in coins) {
-                    getParent()?.addChild(coin)
-                    coin.globalPosition = globalPosition
-                    coin.spawn()
-                }
+            for (coin in coins) {
+                getParent()?.addChild(coin)
+                coin.globalPosition = globalPosition
+                coin.spawn()
             }
 
             queueFree()

@@ -13,7 +13,7 @@ import godot.core.Vector3
 import godot.core.asStringName
 import godot.core.methodCallable0
 import godot.core.methodCallable1
-import godot.extension.api.getNodeAs
+import godot.extension.getNodeAs
 import godot.extension.connectMethod
 import godot.global.GD
 import kotlin.random.Random

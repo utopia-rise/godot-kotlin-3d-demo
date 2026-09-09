@@ -11,10 +11,9 @@ import godot.api.RigidBody3D
 import godot.core.Vector3
 import godot.coroutines.await
 import godot.coroutines.awaitLoadAs
-import godot.coroutines.awaitMainThread
-import godot.coroutines.godotCoroutine
-import godot.extension.api.getNodeAs
-import godot.extension.api.instantiateAs
+import godot.coroutines.launch
+import godot.extension.getNodeAs
+import godot.extension.instantiateAs
 import godot.global.GD
 import shared.Damageable
 
@@ -34,12 +33,10 @@ class Box : RigidBody3D(), Damageable {
 
     @Register
     override fun damage(impactPoint: Vector3, velocity: Vector3) {
-        godotCoroutine {
+        launch {
             val destroyedBox = ResourceLoader.awaitLoadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instantiateAs<DestroyedBox>()!!
-            awaitMainThread {
-                getParent()?.addChild(destroyedBox)
-                destroyedBox.globalPosition = globalPosition
-            }
+            getParent()?.addChild(destroyedBox)
+            destroyedBox.globalPosition = globalPosition
 
             val coinScene = ResourceLoader.awaitLoadAs<PackedScene>(COIN_SCENE_PATH)!!
 
@@ -47,18 +44,16 @@ class Box : RigidBody3D(), Damageable {
                 coinScene.instantiateAs<Coin>()!!
             }
 
-            awaitMainThread {
-                for (coin in coins) {
-                    getParent()?.addChild(coin)
-                    coin.globalPosition = globalPosition
-                    coin.spawn()
-                }
-
-                collisionShape.disabled = true
-
-                destroySound.pitchScale = GD.randfn(1.0f, 0.1f)
-                destroySound.play()
+            for (coin in coins) {
+                getParent()?.addChild(coin)
+                coin.globalPosition = globalPosition
+                coin.spawn()
             }
+
+            collisionShape.disabled = true
+
+            destroySound.pitchScale = GD.randfn(1.0f, 0.1f)
+            destroySound.play()
 
             destroySound.finished.await()
             queueFree()

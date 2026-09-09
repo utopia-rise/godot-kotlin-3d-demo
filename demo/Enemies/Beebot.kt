@@ -15,8 +15,8 @@ import godot.api.PackedScene
 import godot.api.ResourceLoader
 import godot.core.Vector3
 import godot.core.asStringName
-import godot.extension.api.instantiateAs
-import godot.extension.api.loadAs
+import godot.extension.instantiateAs
+import godot.extension.loadAs
 import godot.extension.SignalConnector
 import godot.extension.connectMethod
 

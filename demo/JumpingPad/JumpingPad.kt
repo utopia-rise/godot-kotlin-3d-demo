@@ -7,7 +7,6 @@ import godot.annotation.Register
 import godot.api.Area3D
 import godot.api.Node3D
 import godot.api.Tween
-import godot.core.Vector3
 import godot.core.asNodePath
 import godot.extension.connectMethod
 
@@ -27,7 +26,8 @@ class JumpingPad : Area3D() {
     @Register
     fun onBodyEntered(body: Node3D) {
         if (body is Player) {
-            body.velocity = (Vector3.UP * body.jumpInitialImpulse) + (transform.basis * Vector3.UP * impulseStrength)
+            val launchDirection = mushroom.globalTransform.basis.y.normalized()
+            body.velocity = launchDirection * (body.jumpInitialImpulse + impulseStrength)
 
             val tween = createTween()
             mushroom.scale.y = 0.4

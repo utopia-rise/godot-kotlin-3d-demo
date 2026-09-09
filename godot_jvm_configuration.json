@@ -5,8 +5,8 @@
     "disable_gc": false,
     "jmx_port": -1,
     "max_string_size": -1,
+    "useNativeImage": false,
     "use_debug": false,
-    "version": "2.0",
-    "vm_type": "jvm",
+    "version": "3.0",
     "wait_for_debugger": true
 }
